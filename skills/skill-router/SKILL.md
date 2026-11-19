@@ -16,7 +16,7 @@ featured: true
 
 ## Обязательный порядок работы на любую нетривиальную задачу
 
-1. **Определи домен задачи** и проверь, какие установленные скиллы подходят (через `xall__read_skill` в Чате или нативный инструмент `skill` в Коде).
+1. **Определи домен задачи** и проверь, какие установленные скиллы подходят (через нативный инструмент `skill` в XaLL Code).
 2. **Проверь факты напрямую в коде и конфигах** — не угадывай структуру файлов, флаги CLI или версии библиотек по памяти.
 3. **Сверь важные архитектурные и библиотечные решения** с актуальной документацией, прежде чем фиксировать стек.
 4. **План и развилки до правок**: для сложных задач сначала составь краткий пошаговый план (`/plan`), уточни ключевые развилки по одному вопросу (`/grill`), а затем реализуй.
@@ -32,7 +32,7 @@ featured: true
 | **Frontend и UI/UX** | React 19, TypeScript, CSS Grid/Popover, WCAG, Electron, анимации | `react-19-patterns`, `typescript-strict-types`, `css-modern-layout`, `web-accessibility-wcag`, `design-system-tokens`, `electron-wayland-desktop`, `micro-interactions-motion` |
 | **Backend, API и БД** | FastAPI, Bun/Node, PostgreSQL, SQLite, Redis, OAuth/JWT, SSE | `fastapi-production`, `nodejs-bun-services`, `postgresql-query-tuning`, `sqlite-local-first`, `redis-caching-queues`, `auth-oauth-jwt-passkeys`, `websockets-sse-realtime` |
 | **AI, LLM и Агенты** | Субагенты, ресёрч, RAG, LoRA/GRPO, GGUF/llama.cpp, MCP | `skill-router`, `dispatching-parallel-agents`, `research`, `prompt-engineering-evals`, `rag-hybrid-search`, `lora-qlora-finetuning`, `rlvr-grpo-posttraining`, `gguf-quantization-llamacpp`, `mcp-server-builder` |
-| **Linux, DevOps и Инфра** | Linux CLI, Docker, systemd, Nginx/Caddy, CI/CD, Git worktree, Niri | `linux-devops-automation`, `docker-multi-stage`, `systemd-user-services`, `nginx-caddy-reverse-proxy`, `github-actions-cicd`, `git-worktree-workflows`, `bash-strict-scripting`, `wayland-niri-poweruser` |
+| **Linux, DevOps и Инфра** | Linux CLI, локальные dev-серверы и превью в браузере, Docker, systemd, Nginx/Caddy, CI/CD, Git worktree, Niri | `local-dev-server-preview`, `linux-devops-automation`, `docker-multi-stage`, `systemd-user-services`, `nginx-caddy-reverse-proxy`, `github-actions-cicd`, `git-worktree-workflows`, `bash-strict-scripting`, `wayland-niri-poweruser` |
 | **Безопасность и Аудит** | OWASP, секреты, SHA-256 цепочка поставок, SQLi/XSS, CSP, Docker | `owasp-web-audit`, `secrets-hygiene-scanner`, `dependency-supply-chain`, `sql-xss-injection-guard`, `sandbox-iframe-csp`, `crypto-hashing-best-practices`, `container-security-audit` |
 | **Данные, Python и Системы** | Python/uv/ruff, Rust, Go, Polars, очистка JSONL, бенчмарки, VRAM | `python-modern-uv-ruff`, `rust-safe-systems`, `go-concurrent-backends`, `pandas-polars-pipelines`, `data-cleaning-dedup`, `benchmark-harness-design`, `gpu-vram-optimization` |
 | **Геймдев, Minecraft и Медиа** | Paper/Purpur Java 21, MythicMobs, датапаки, Blockbench, Three.js, Remotion, FFmpeg | `minecraft-plugin-dev`, `minecraft-paper-performance`, `minecraft-mythicmobs-configs`, `minecraft-datapacks-commands`, `blockbench-3d-modeling`, `threejs-webgl-shaders`, `remotion-video-scripting`, `ffmpeg-media-pipelines` |
@@ -41,5 +41,6 @@ featured: true
 ## Комбинирование скиллов
 Для комплексных задач подключай 2–3 скилла одновременно:
 - *Фича в веб/десктоп приложении:* `clean-code-engineer` + `react-19-patterns` + `verification-before-completion`
+- *Интерактивное демо / веб-приложение в браузере:* `local-dev-server-preview` + `css-modern-layout` + `micro-interactions-motion` (+ `threejs-webgl-shaders` / `game-loop-physics` / `audio-dsp-sfx`)
 - *Сложный баг или просадка скорости:* `diagnosing-bugs` + `performance-profiling` + `tdd`
 - *Публичный релиз или хранилище данных:* `owasp-web-audit` + `secrets-hygiene-scanner` + `changelog-semver-release`

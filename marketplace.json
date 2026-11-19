@@ -3,7 +3,7 @@
   "name": "XaLL Skills Marketplace",
   "repo": "mibuchik/xall-skills",
   "branch": "main",
-  "updatedAt": "2026-11-19T16:38:51Z",
+  "updatedAt": "2026-11-19T20:51:21Z",
   "categories": [
     {
       "id": "engineering",
@@ -142,12 +142,12 @@
       "version": "1.0.0",
       "featured": true,
       "path": "skills/skill-router",
-      "totalBytes": 6394,
+      "totalBytes": 6698,
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "9e67a53f9ebea9d78538d1657008c1e1b885e590d84b0599e7d59721f21208b6",
-          "bytes": 6394
+          "sha256": "a524871e8673254ba942e76abc108b1acebd374faa83773ef93eb14a91a9e34c",
+          "bytes": 6698
         }
       ]
     },
@@ -1313,6 +1313,31 @@
           "path": "SKILL.md",
           "sha256": "dd9852c96dd193ccdee74553b02ac9accb88c9fb111fd785d38fd2d412ba0862",
           "bytes": 2903
+        }
+      ]
+    },
+    {
+      "id": "local-dev-server-preview",
+      "name": "local-dev-server-preview",
+      "description": "Надёжный запуск локальных веб-приложений, dev-серверов (Vite, Node, Bun, Python) и превью в браузере из AI-агента: setsid + nohup без BrokenPipeError, контроль PID/порта, проверка HTTP 200 после detach и открытие браузера без зависания.",
+      "category": "devops-linux",
+      "tags": [
+        "dev-server",
+        "browser",
+        "localhost",
+        "setsid",
+        "preview",
+        "http"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/local-dev-server-preview",
+      "totalBytes": 5872,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "025844174c6db93746a26055c92f8eafdc57c59a34e017aa92b88b4cf5d231bb",
+          "bytes": 5872
         }
       ]
     },
