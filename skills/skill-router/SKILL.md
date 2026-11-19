@@ -29,7 +29,7 @@ featured: true
 | :--- | :--- | :--- |
 | **Инженерия и Архитектура** | Проектирование модулей, чистый код, ревью, API, рефакторинг | `clean-code-engineer`, `codebase-design`, `code-review`, `grilling`, `verification-before-completion`, `refactoring-legacy`, `api-design-rest-graphql` |
 | **Отладка, Тесты и Качество** | Баги, регрессии, TDD, E2E, профилирование, утечки памяти | `diagnosing-bugs`, `tdd`, `webapp-testing`, `fast-batch-ops`, `flaky-test-hunter`, `performance-profiling`, `memory-leak-detective` |
-| **Frontend и UI/UX** | React 19, TypeScript, CSS Grid/Popover, WCAG, Electron, анимации | `react-19-patterns`, `typescript-strict-types`, `css-modern-layout`, `web-accessibility-wcag`, `design-system-tokens`, `electron-wayland-desktop`, `micro-interactions-motion` |
+| **Frontend и UI/UX** | Веб-дизайн, сайты, браузерные демо, React 19, TypeScript, CSS Grid/Popover, WCAG, Electron, анимации | `anti-slop-web-craft`, `react-19-patterns`, `typescript-strict-types`, `css-modern-layout`, `web-accessibility-wcag`, `design-system-tokens`, `electron-wayland-desktop`, `micro-interactions-motion` |
 | **Backend, API и БД** | FastAPI, Bun/Node, PostgreSQL, SQLite, Redis, OAuth/JWT, SSE | `fastapi-production`, `nodejs-bun-services`, `postgresql-query-tuning`, `sqlite-local-first`, `redis-caching-queues`, `auth-oauth-jwt-passkeys`, `websockets-sse-realtime` |
 | **AI, LLM и Агенты** | Субагенты, ресёрч, RAG, LoRA/GRPO, GGUF/llama.cpp, MCP | `skill-router`, `dispatching-parallel-agents`, `research`, `prompt-engineering-evals`, `rag-hybrid-search`, `lora-qlora-finetuning`, `rlvr-grpo-posttraining`, `gguf-quantization-llamacpp`, `mcp-server-builder` |
 | **Linux, DevOps и Инфра** | Linux CLI, локальные dev-серверы и превью в браузере, Docker, systemd, Nginx/Caddy, CI/CD, Git worktree, Niri | `local-dev-server-preview`, `linux-devops-automation`, `docker-multi-stage`, `systemd-user-services`, `nginx-caddy-reverse-proxy`, `github-actions-cicd`, `git-worktree-workflows`, `bash-strict-scripting`, `wayland-niri-poweruser` |
@@ -41,6 +41,6 @@ featured: true
 ## Комбинирование скиллов
 Для комплексных задач подключай 2–3 скилла одновременно:
 - *Фича в веб/десктоп приложении:* `clean-code-engineer` + `react-19-patterns` + `verification-before-completion`
-- *Интерактивное демо / веб-приложение в браузере:* `local-dev-server-preview` + `css-modern-layout` + `micro-interactions-motion` (+ `threejs-webgl-shaders` / `game-loop-physics` / `audio-dsp-sfx`)
+- *Интерактивное демо / веб-приложение в браузере:* `anti-slop-web-craft` + `local-dev-server-preview` + `css-modern-layout` + `micro-interactions-motion` (+ `threejs-webgl-shaders` / `game-loop-physics` / `audio-dsp-sfx`)
 - *Сложный баг или просадка скорости:* `diagnosing-bugs` + `performance-profiling` + `tdd`
 - *Публичный релиз или хранилище данных:* `owasp-web-audit` + `secrets-hygiene-scanner` + `changelog-semver-release`

@@ -3,7 +3,7 @@
   "name": "XaLL Skills Marketplace",
   "repo": "mibuchik/xall-skills",
   "branch": "main",
-  "updatedAt": "2026-11-19T20:51:21Z",
+  "updatedAt": "2026-11-19T20:56:51Z",
   "categories": [
     {
       "id": "engineering",
@@ -128,6 +128,32 @@
   ],
   "skills": [
     {
+      "id": "anti-slop-web-craft",
+      "name": "anti-slop-web-craft",
+      "description": "Жёсткий арт-дирекшн и анти-AI-слоп протокол для создания выдающихся веб-сайтов, интерфейсов, дашбордов и интерактивных браузерных приложений уровня дизайн-студии: 6 OKLCH дизайн-миров, выразительная типографика, реальный Canvas/WebGL/Web Audio интерактив, запрет шаблонных градиентов и обязательный аудит кода до сдачи. ОБЯЗАТЕЛЬНО загружай ДО написания первой строки HTML/CSS/JS для любой веб-задачи.",
+      "category": "frontend-ui",
+      "tags": [
+        "web-design",
+        "anti-slop",
+        "ui-craft",
+        "oklch",
+        "typography",
+        "creative-coding",
+        "featured"
+      ],
+      "version": "1.0.0",
+      "featured": true,
+      "path": "skills/anti-slop-web-craft",
+      "totalBytes": 13403,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "557fd059a7ff84e13ff6b183a54a660c5c4703cdc7e5ecd1986906a5f441e3c7",
+          "bytes": 13403
+        }
+      ]
+    },
+    {
       "id": "skill-router",
       "name": "skill-router",
       "description": "Главный рекомендованный диспетчер скиллов XaLL. При каждом запросе анализирует задачу, подключает подходящие скиллы по 10 тематическим категориям, сверяет важные решения с актуальной документацией и проводит поэтапное планирование перед правками.",
@@ -142,12 +168,12 @@
       "version": "1.0.0",
       "featured": true,
       "path": "skills/skill-router",
-      "totalBytes": 6698,
+      "totalBytes": 6809,
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "a524871e8673254ba942e76abc108b1acebd374faa83773ef93eb14a91a9e34c",
-          "bytes": 6698
+          "sha256": "a74f3102c3424033857917d31b1d11871be378563ee4fa60741f10ff5afc2eb9",
+          "bytes": 6809
         }
       ]
     },
