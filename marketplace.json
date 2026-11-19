@@ -1,0 +1,2606 @@
+{
+  "schemaVersion": 1,
+  "name": "XaLL Skills Marketplace",
+  "repo": "mibuchik/xall-skills",
+  "branch": "main",
+  "updatedAt": "2026-11-19T16:07:36Z",
+  "categories": [
+    {
+      "id": "engineering",
+      "name": {
+        "ru": "Инженерия и Архитектура",
+        "en": "Engineering & Architecture"
+      },
+      "description": {
+        "ru": "Чистый код, проектирование модулей, ревью, API и архитектурные решения",
+        "en": "Clean code, deep modules, code review, API design, and architecture"
+      },
+      "icon": "layers"
+    },
+    {
+      "id": "debugging-qa",
+      "name": {
+        "ru": "Отладка, Тесты и Качество",
+        "en": "Debugging, QA & Testing"
+      },
+      "description": {
+        "ru": "Поиск первопричин, TDD, профилирование, нагрузочное и E2E-тестирование",
+        "en": "Root-cause debugging, TDD, profiling, load testing, and E2E verification"
+      },
+      "icon": "bug"
+    },
+    {
+      "id": "frontend-ui",
+      "name": {
+        "ru": "Frontend и UI/UX",
+        "en": "Frontend & UI/UX"
+      },
+      "description": {
+        "ru": "React 19, TypeScript, CSS, дизайн-системы, доступность и десктопные интерфейсы",
+        "en": "React 19, TypeScript, modern CSS, design systems, a11y, and desktop UI"
+      },
+      "icon": "palette"
+    },
+    {
+      "id": "backend-db",
+      "name": {
+        "ru": "Backend, API и Базы данных",
+        "en": "Backend, APIs & Databases"
+      },
+      "description": {
+        "ru": "FastAPI, Bun/Node, PostgreSQL, SQLite, Redis, авторизация и real-time сервисы",
+        "en": "FastAPI, Bun/Node, PostgreSQL, SQLite, Redis, auth, and realtime systems"
+      },
+      "icon": "database"
+    },
+    {
+      "id": "ai-agents",
+      "name": {
+        "ru": "AI, LLM и Агенты",
+        "en": "AI, LLMs & Agents"
+      },
+      "description": {
+        "ru": "Роутинг скиллов, субагенты, RAG, дообучение LoRA/GRPO, GGUF и MCP-серверы",
+        "en": "Skill routing, subagents, RAG, LoRA/GRPO fine-tuning, GGUF, and MCP servers"
+      },
+      "icon": "cpu"
+    },
+    {
+      "id": "devops-linux",
+      "name": {
+        "ru": "Linux, DevOps и Инфраструктура",
+        "en": "Linux, DevOps & Infra"
+      },
+      "description": {
+        "ru": "Linux-администрирование, Docker, systemd, CI/CD, Git worktree и мониторинг",
+        "en": "Linux administration, Docker, systemd, CI/CD, Git worktrees, and observability"
+      },
+      "icon": "terminal"
+    },
+    {
+      "id": "security",
+      "name": {
+        "ru": "Безопасность и Аудит",
+        "en": "Security & Auditing"
+      },
+      "description": {
+        "ru": "OWASP-аудит, секреты, CSP/песочницы, криптография и защита инфраструктуры",
+        "en": "OWASP audits, secrets hygiene, sandbox CSP, cryptography, and hardening"
+      },
+      "icon": "shield"
+    },
+    {
+      "id": "data-systems",
+      "name": {
+        "ru": "Данные, Python и Системы",
+        "en": "Data, Python & Systems"
+      },
+      "description": {
+        "ru": "Python, Rust, Go, дата-пайплайны, бенчмарки, парсеры и оптимизация GPU VRAM",
+        "en": "Python, Rust, Go, data pipelines, benchmarks, parsers, and GPU optimization"
+      },
+      "icon": "bar-chart"
+    },
+    {
+      "id": "gamedev-media",
+      "name": {
+        "ru": "Геймдев, Minecraft и Медиа",
+        "en": "GameDev, Minecraft & Media"
+      },
+      "description": {
+        "ru": "Плагины Paper/Purpur, Blockbench 3D, WebGL/Three.js, Remotion и FFmpeg",
+        "en": "Minecraft Paper plugins, Blockbench 3D, WebGL/Three.js, Remotion, and FFmpeg"
+      },
+      "icon": "gamepad"
+    },
+    {
+      "id": "product-docs-bots",
+      "name": {
+        "ru": "Продукт, Документация и Боты",
+        "en": "Product, Docs & Bots"
+      },
+      "description": {
+        "ru": "Техдокументация, Telegram/Discord-боты, i18n, спецификации и редактура текстов",
+        "en": "Technical docs, Telegram/Discord bots, i18n, PRDs, and crisp human editing"
+      },
+      "icon": "book-open"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill-router",
+      "name": "skill-router",
+      "description": "Главный рекомендованный диспетчер скиллов XaLL. При каждом запросе анализирует задачу, подключает подходящие скиллы по 10 тематическим категориям, сверяет важные решения с актуальной документацией и проводит поэтапное планирование перед правками.",
+      "category": "ai-agents",
+      "tags": [
+        "router",
+        "recommended",
+        "workflow",
+        "planning",
+        "dispatch"
+      ],
+      "version": "1.0.0",
+      "featured": true,
+      "path": "skills/skill-router",
+      "totalBytes": 6394,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "9e67a53f9ebea9d78538d1657008c1e1b885e590d84b0599e7d59721f21208b6",
+          "bytes": 6394
+        }
+      ]
+    },
+    {
+      "id": "agent-tool-design",
+      "name": "agent-tool-design",
+      "description": "Проектирование инструментов и циклов AI-агентов: идемпотентные контракты, защита от зацикливания, делегирование субагентам и бюджеты контекста.",
+      "category": "ai-agents",
+      "tags": [
+        "agents",
+        "tool-calling",
+        "guardrails",
+        "orchestration",
+        "ux"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/agent-tool-design",
+      "totalBytes": 3331,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "ee969fbec72417c4cb4d7b325c6c4443d5cf5f49f0d77b79c5ba0d5b684141d2",
+          "bytes": 3331
+        }
+      ]
+    },
+    {
+      "id": "api-design-rest-graphql",
+      "name": "api-design-rest-graphql",
+      "description": "Проектирование предсказуемых REST/OpenAPI и GraphQL контрактов: версионирование, идемпотентность, RFC 9457 ошибки и курсорная пагинация.",
+      "category": "engineering",
+      "tags": [
+        "rest",
+        "graphql",
+        "openapi",
+        "pagination",
+        "idempotency"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/api-design-rest-graphql",
+      "totalBytes": 2828,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "7180c4ed275d47ab2188ed562f908acb4690bd5b381b97260c6b10c6a82f8d21",
+          "bytes": 2828
+        }
+      ]
+    },
+    {
+      "id": "api-rate-limit-abuse",
+      "name": "api-rate-limit-abuse",
+      "description": "Защита API от злоупотреблений и исчерпания ресурсов: token-bucket/sliding-window rate limiting, лимиты размера тела, таймауты и заголовки `Retry-After`.",
+      "category": "security",
+      "tags": [
+        "rate-limit",
+        "dos",
+        "quotas",
+        "abuse",
+        "backpressure"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/api-rate-limit-abuse",
+      "totalBytes": 3026,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "6fb385c15c2f8abb9de7c1447834f2ce6fd204b95b50019e59cad6188d96deb3",
+          "bytes": 3026
+        }
+      ]
+    },
+    {
+      "id": "audio-dsp-sfx",
+      "name": "audio-dsp-sfx",
+      "description": "Обработка аудио и игрового звука: нормализация громкости (LUFS / True Peak), устранение клиппинга и щелчков, Web Audio / FFmpeg фильтры и оптимальные форматы.",
+      "category": "gamedev-media",
+      "tags": [
+        "audio",
+        "dsp",
+        "loudness",
+        "web-audio",
+        "sfx"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/audio-dsp-sfx",
+      "totalBytes": 3145,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "260c85ec8eb5d91d657ef9a620ea79bb097a81ae0588981e24af6218c9983158",
+          "bytes": 3145
+        }
+      ]
+    },
+    {
+      "id": "auth-oauth-jwt-passkeys",
+      "name": "auth-oauth-jwt-passkeys",
+      "description": "Безопасная аутентификация и авторизация: короткоживущие JWT + ротация refresh-токенов, HttpOnly cookie, OAuth2 PKCE, Passkeys и RBAC/ABAC.",
+      "category": "backend-db",
+      "tags": [
+        "auth",
+        "oauth2",
+        "jwt",
+        "passkeys",
+        "sessions",
+        "security"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/auth-oauth-jwt-passkeys",
+      "totalBytes": 2888,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "7a5e7b08fb8a54843b720476cab36f8ceb7d7e241b0d53dd9bf247560d729ae9",
+          "bytes": 2888
+        }
+      ]
+    },
+    {
+      "id": "backup-disaster-recovery",
+      "name": "backup-disaster-recovery",
+      "description": "Надёжные бэкапы и восстановление (3-2-1): атомарные дампы БД, шифрованные инкрементальные бэкапы (restic/borg) и обязательные тестовые восстановления.",
+      "category": "devops-linux",
+      "tags": [
+        "backup",
+        "restore",
+        "rpo",
+        "rto",
+        "restic",
+        "reliability"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/backup-disaster-recovery",
+      "totalBytes": 3039,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "3a4dce5efc1792e0f74f9a7985f68bb043aab34211074071fef502374834f7de",
+          "bytes": 3039
+        }
+      ]
+    },
+    {
+      "id": "bash-strict-scripting",
+      "name": "bash-strict-scripting",
+      "description": "Надёжные Bash-скрипты продакшен-уровня: `set -euo pipefail`, безопасное экранирование, `trap` на cleanup, временные файлы и проверка ShellCheck.",
+      "category": "devops-linux",
+      "tags": [
+        "bash",
+        "shell",
+        "shellcheck",
+        "automation",
+        "scripting"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/bash-strict-scripting",
+      "totalBytes": 2949,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "16a37c23ac32474fb2a5527b02783dd89127c568643969784698b145bdc25309",
+          "bytes": 2949
+        }
+      ]
+    },
+    {
+      "id": "benchmark-harness-design",
+      "name": "benchmark-harness-design",
+      "description": "Проектирование честных и воспроизводимых бенчмарков: единый протокол, детерминированные параметры, статистическая значимость и защита от утечек.",
+      "category": "data-systems",
+      "tags": [
+        "benchmarks",
+        "eval",
+        "pass-at-k",
+        "reproducibility",
+        "statistics"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/benchmark-harness-design",
+      "totalBytes": 3452,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "0e50ce4090df8a59e1b5e9ab6d35b4bcd2b0b00176a5cabbcba8307c1d33a781",
+          "bytes": 3452
+        }
+      ]
+    },
+    {
+      "id": "blockbench-3d-modeling",
+      "name": "blockbench-3d-modeling",
+      "description": "Моделирование и анимация в Blockbench (`.bbmodel`): чистая иерархия костей и пивотов, плотный pixel-consistent UV без растяжек, плавные циклы и валидация экспорта.",
+      "category": "gamedev-media",
+      "tags": [
+        "blockbench",
+        "bbmodel",
+        "3d",
+        "uv",
+        "animations",
+        "bedrock"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/blockbench-3d-modeling",
+      "totalBytes": 3302,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "643bb7321a91b7f248aefe42698a6ebc8a76c615cf6624f6ea6f04ac5a20ba59",
+          "bytes": 3302
+        }
+      ]
+    },
+    {
+      "id": "changelog-semver-release",
+      "name": "changelog-semver-release",
+      "description": "Аккуратные релизы по SemVer и Keep a Changelog: аудит `git log`, выделение breaking changes, генерация release notes и проверка артефактов перед тегом.",
+      "category": "product-docs-bots",
+      "tags": [
+        "semver",
+        "changelog",
+        "release",
+        "git-tags",
+        "versioning"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/changelog-semver-release",
+      "totalBytes": 2695,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "091ba86430c1ed7fa49540bd6c73eaedc45fec1311451ef2cb386b7d82b8f1cb",
+          "bytes": 2695
+        }
+      ]
+    },
+    {
+      "id": "chaos-fault-injection",
+      "name": "chaos-fault-injection",
+      "description": "Проверка отказоустойчивости (Chaos Engineering): контролируемая инъекция задержек, обрывов сети, отказов зависимостей и деградации диска.",
+      "category": "debugging-qa",
+      "tags": [
+        "chaos",
+        "resilience",
+        "fault-injection",
+        "failover",
+        "timeouts"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/chaos-fault-injection",
+      "totalBytes": 3103,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "881920aefa88088c0d53f04d983fc099e7b509a74d8336b97df30110c2d83e61",
+          "bytes": 3103
+        }
+      ]
+    },
+    {
+      "id": "clean-code-engineer",
+      "name": "clean-code-engineer",
+      "description": "Стандарты написания чистого, надёжного и готового к продакшену кода (Java, Python, TypeScript/React, Bash, YAML, боты Telegram/Discord, веб-сервисы). Гарантирует отсутствие костылей, самопроверку и защиту от ошибок.",
+      "category": "engineering",
+      "tags": [
+        "clean-code",
+        "architecture",
+        "production",
+        "quality"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/clean-code-engineer",
+      "totalBytes": 2988,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "c809936022fb70c44a361ad8469c55b10f09639c148d4b77cd56f70ac9ad045e",
+          "bytes": 2988
+        }
+      ]
+    },
+    {
+      "id": "cli-ux-craftsmanship",
+      "name": "cli-ux-craftsmanship",
+      "description": "Проектирование первоклассных CLI-инструментов: чистые флаги и `--help`, машиночитаемый `--json`, разделение `stdout`/`stderr`, `NO_COLOR` и коды возврата.",
+      "category": "data-systems",
+      "tags": [
+        "cli",
+        "ux",
+        "stdout",
+        "exit-codes",
+        "flags"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/cli-ux-craftsmanship",
+      "totalBytes": 2877,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "94274cf909d9767e1aa63f3850776a0467dc0890222af3aefde6b20822350654",
+          "bytes": 2877
+        }
+      ]
+    },
+    {
+      "id": "code-review",
+      "name": "code-review",
+      "description": "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes: Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \\\"review since X\\\".",
+      "category": "engineering",
+      "tags": [
+        "review",
+        "diff",
+        "standards",
+        "spec"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/code-review",
+      "totalBytes": 6845,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "2fccbd2a96cc256ab147122edc6614e49db881352059ed866443e544ecb8054a",
+          "bytes": 6745
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "8229ca854e11dc8e6aef2131ee03f31fb1561cf905fab9ccc325180cf3331352",
+          "bytes": 100
+        }
+      ]
+    },
+    {
+      "id": "codebase-design",
+      "name": "codebase-design",
+      "description": "Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary.",
+      "category": "engineering",
+      "tags": [
+        "modules",
+        "interfaces",
+        "architecture",
+        "seams"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/codebase-design",
+      "totalBytes": 11852,
+      "files": [
+        {
+          "path": "DEEPENING.md",
+          "sha256": "f3dd099ce99289bd213914d8ee3e2429b78309c3957ca4583f7659551b1d53c1",
+          "bytes": 2553
+        },
+        {
+          "path": "DESIGN-IT-TWICE.md",
+          "sha256": "52b52e75655a27aea59c6966b410bac82448968ad46ef1ebb9f07c274e3ae010",
+          "bytes": 2665
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "b6c67aaa103c2a358ae93526116d97872ceacd04af2ee50b03d39f59d42990aa",
+          "bytes": 6532
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "edebc9e4fcfe102114012575eaa9600b9b5fd08c311664f389c36e7bc717740f",
+          "bytes": 102
+        }
+      ]
+    },
+    {
+      "id": "concurrency-async-patterns",
+      "name": "concurrency-async-patterns",
+      "description": "Безопасная конкурентность и асинхронность: structured concurrency, отмена (AbortSignal/Cancellation), backpressure и защита от race conditions.",
+      "category": "engineering",
+      "tags": [
+        "concurrency",
+        "async",
+        "locks",
+        "backpressure",
+        "cancellation"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/concurrency-async-patterns",
+      "totalBytes": 3009,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "ba7b233f98777e57c28ea5c78d86f3ed389a367e8b399bf27e213afdb726b885",
+          "bytes": 3009
+        }
+      ]
+    },
+    {
+      "id": "container-security-audit",
+      "name": "container-security-audit",
+      "description": "Аудит безопасности контейнеров и песочниц запуска кода: drop capabilities, `read_only` rootfs, лимиты PIDs/RAM/CPU, `--network=none` и запрет `docker.sock`.",
+      "category": "security",
+      "tags": [
+        "containers",
+        "docker",
+        "seccomp",
+        "rootless",
+        "isolation"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/container-security-audit",
+      "totalBytes": 2769,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "55b994e75da6345908879a0157abc7669c9e653887933afa37c6081715155ece",
+          "bytes": 2769
+        }
+      ]
+    },
+    {
+      "id": "crypto-hashing-best-practices",
+      "name": "crypto-hashing-best-practices",
+      "description": "Безопасная прикладная криптография без самописных шифров: Argon2id для паролей, AES-256-GCM / ChaCha20-Poly1305, CSPRNG и constant-time сравнения.",
+      "category": "security",
+      "tags": [
+        "cryptography",
+        "argon2",
+        "aes-gcm",
+        "sha256",
+        "hmac"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/crypto-hashing-best-practices",
+      "totalBytes": 3040,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "c0819c1583cd34ba8ab23a0ce23f635163cf8c1f93ae99b7161fb8ca2d7b7d25",
+          "bytes": 3040
+        }
+      ]
+    },
+    {
+      "id": "css-modern-layout",
+      "name": "css-modern-layout",
+      "description": "Современная CSS-вёрстка: Grid/Subgrid, Container Queries, нативные `<dialog>` и `[popover]`, CSS Anchor Positioning и защита от overflow.",
+      "category": "frontend-ui",
+      "tags": [
+        "css",
+        "grid",
+        "container-queries",
+        "popover",
+        "anchor-positioning"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/css-modern-layout",
+      "totalBytes": 2752,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "c0306425037cdcb05e199482914c35abeed5ba06249849e67fd9241d787fe1a1",
+          "bytes": 2752
+        }
+      ]
+    },
+    {
+      "id": "data-cleaning-dedup",
+      "name": "data-cleaning-dedup",
+      "description": "Очистка и дедупликация текстовых и кодовых датасетов (JSONL): нормализация, точный + нечёткий MinHash/n-gram dedup, проверка контаминации бенчмарков.",
+      "category": "data-systems",
+      "tags": [
+        "dataset",
+        "deduplication",
+        "jsonl",
+        "contamination",
+        "quality"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/data-cleaning-dedup",
+      "totalBytes": 3113,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "729076a3038051e8556fa67c1c535f7a838f85b29e5c0828c1e84d29ddae1851",
+          "bytes": 3113
+        }
+      ]
+    },
+    {
+      "id": "database-migrations-safe",
+      "name": "database-migrations-safe",
+      "description": "Безопасные zero-downtime миграции БД: паттерн Expand-and-Contract, безопасные дефолты, бэкфилл батчами и обратимость.",
+      "category": "backend-db",
+      "tags": [
+        "migrations",
+        "zero-downtime",
+        "expand-contract",
+        "sql",
+        "schema"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/database-migrations-safe",
+      "totalBytes": 3152,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "eac5d8deb0fe59ff02f0ef6be324c925335304754dbd1ce376bb87c74de1d762",
+          "bytes": 3152
+        }
+      ]
+    },
+    {
+      "id": "dependency-supply-chain",
+      "name": "dependency-supply-chain",
+      "description": "Защита цепочки поставок зависимостей: закреплённые lockfile, проверка контрольных сумм SHA-256, аудит CVE и минимизация сторонних пакетов.",
+      "category": "security",
+      "tags": [
+        "supply-chain",
+        "lockfile",
+        "sbom",
+        "sha256",
+        "audit"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/dependency-supply-chain",
+      "totalBytes": 2942,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "6a5ef915daa15fe3e103329ab96fc002a6d586c1f6d3d408c550bdfecb2ef900",
+          "bytes": 2942
+        }
+      ]
+    },
+    {
+      "id": "design-system-tokens",
+      "name": "design-system-tokens",
+      "description": "Построение спокойной и масштабируемой дизайн-системы: семантические токены поверхностей, типографическая шкала, ритм отступов и мульти-темы.",
+      "category": "frontend-ui",
+      "tags": [
+        "design-system",
+        "tokens",
+        "theming",
+        "typography",
+        "dark-mode"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/design-system-tokens",
+      "totalBytes": 3204,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "1209324f0d0c1e0775bb1c2f779c691314d536bd50d47b76d814cd190f8dbdaa",
+          "bytes": 3204
+        }
+      ]
+    },
+    {
+      "id": "diagnosing-bugs",
+      "name": "diagnosing-bugs",
+      "description": "Diagnosis loop for hard bugs and performance regressions. Use when the user says \"diagnose\"/\"debug this\", or reports something broken/throwing/failing/slow.",
+      "category": "debugging-qa",
+      "tags": [
+        "debugging",
+        "root-cause",
+        "profiling",
+        "regression"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/diagnosing-bugs",
+      "totalBytes": 10174,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "3ec78d532ea7f9b5e3aebe31083cc5d9d32b5a7145c0fb66cbec6f94a025c239",
+          "bytes": 8755
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "3e430dbe4334a87597488c060cb3dc3786bb00c9182877d6f5ec41f62490e90b",
+          "bytes": 103
+        },
+        {
+          "path": "scripts/hitl-loop.template.sh",
+          "sha256": "35103539fc36873eea36074769ad454f9379d6fc8b2dc0e26ce987fd3bfe5503",
+          "bytes": 1316
+        }
+      ]
+    },
+    {
+      "id": "discord-bot-architecture",
+      "name": "discord-bot-architecture",
+      "description": "Надёжные Discord-боты (discord.py / discord.js): slash-команды, обязательный `defer()` за 3 секунды, минимальные Intents, шардинг и обработка rate-limits.",
+      "category": "product-docs-bots",
+      "tags": [
+        "discord",
+        "slash-commands",
+        "bots",
+        "interactions",
+        "rate-limits"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/discord-bot-architecture",
+      "totalBytes": 3165,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "0796144d00b78a263bce4b740a4ebc2a19a45ce1fb6d03980b56cdcd93c8e891",
+          "bytes": 3165
+        }
+      ]
+    },
+    {
+      "id": "dispatching-parallel-agents",
+      "name": "dispatching-parallel-agents",
+      "description": "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies",
+      "category": "ai-agents",
+      "tags": [
+        "subagents",
+        "parallel",
+        "orchestration",
+        "worktree"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/dispatching-parallel-agents",
+      "totalBytes": 6166,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "039f093c7af09d5bea52b5480b004be85dac0e3327b9e1b1d462b26563954f1c",
+          "bytes": 6166
+        }
+      ]
+    },
+    {
+      "id": "docker-multi-stage",
+      "name": "docker-multi-stage",
+      "description": "Сборка компактных и безопасных Docker-образов: multi-stage builds, кэш слоёв BuildKit, non-root пользователь и минимальный runtime.",
+      "category": "devops-linux",
+      "tags": [
+        "docker",
+        "containers",
+        "multi-stage",
+        "buildkit",
+        "optimization"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/docker-multi-stage",
+      "totalBytes": 2845,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "ff22d87d66281ed8767638d40a171b1fcb04a44fc3ef13a7df11bd2da08fadfe",
+          "bytes": 2845
+        }
+      ]
+    },
+    {
+      "id": "electron-wayland-desktop",
+      "name": "electron-wayland-desktop",
+      "description": "Разработка безопасных и нативных Electron-приложений под Linux/Wayland: изоляция контекста, тонкий IPC-мост, обход багов Wayland popup и clean shutdown.",
+      "category": "frontend-ui",
+      "tags": [
+        "electron",
+        "wayland",
+        "ipc",
+        "security",
+        "linux-desktop"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/electron-wayland-desktop",
+      "totalBytes": 2827,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "9aa8c085689858b4643fa2f2553d9b6c757bca21144298ffd745831376ba522b",
+          "bytes": 2827
+        }
+      ]
+    },
+    {
+      "id": "event-driven-messaging",
+      "name": "event-driven-messaging",
+      "description": "Надёжная событийная архитектура (Kafka/NATS/RabbitMQ): at-least-once доставка, идемпотентность, DLQ, партиционирование и эволюция схем событий.",
+      "category": "backend-db",
+      "tags": [
+        "events",
+        "kafka",
+        "rabbitmq",
+        "dlq",
+        "idempotency"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/event-driven-messaging",
+      "totalBytes": 2884,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "0dcb420256fd8df6df93c89c13a62bb58cd1306192c37c656e9e33f5ac13c2b9",
+          "bytes": 2884
+        }
+      ]
+    },
+    {
+      "id": "fast-batch-ops",
+      "name": "fast-batch-ops",
+      "description": "Протокол сверхбыстрой и бережливой работы с токенами: пакетные проверки одним скриптом вместо десятка мелких вызовов, точечное чтение файлов и правило «есть бэкап — нет факапа».",
+      "category": "debugging-qa",
+      "tags": [
+        "batch",
+        "audit",
+        "efficiency",
+        "backup"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/fast-batch-ops",
+      "totalBytes": 2241,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "151250739bc632add3d3bd0b992ffbd09968addf99ea6503bac1836a7ab93900",
+          "bytes": 2241
+        }
+      ]
+    },
+    {
+      "id": "fastapi-production",
+      "name": "fastapi-production",
+      "description": "Продакшен-сервисы на FastAPI: Pydantic v2 схемы, lifespan-управление ресурсами, потоковый SSE, таймауты и корректная обработка `CancelledError`.",
+      "category": "backend-db",
+      "tags": [
+        "fastapi",
+        "python",
+        "pydantic",
+        "uvicorn",
+        "sse"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/fastapi-production",
+      "totalBytes": 2838,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "bc09eae82b55b306c3e27c2124b612795766626d6bc310f34a6fb0eb9e28786a",
+          "bytes": 2838
+        }
+      ]
+    },
+    {
+      "id": "ffmpeg-media-pipelines",
+      "name": "ffmpeg-media-pipelines",
+      "description": "Надёжные медиа-пайплайны на FFmpeg/FFprobe: инспекция потоков, корректные кодеки и пиксельные форматы (`yuv420p`), `-movflags +faststart`, фильтры и пакетная обработка.",
+      "category": "gamedev-media",
+      "tags": [
+        "ffmpeg",
+        "ffprobe",
+        "video",
+        "audio",
+        "transcoding"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/ffmpeg-media-pipelines",
+      "totalBytes": 3066,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "f279f16b67ab2e067bb942cff415d5d98d8f486db4f2a7444cf51eafbf62c7d9",
+          "bytes": 3066
+        }
+      ]
+    },
+    {
+      "id": "flaky-test-hunter",
+      "name": "flaky-test-hunter",
+      "description": "Систематическая охота на плавающие тесты: изоляция состояния, детерминизация времени/портов/случайности и проверка 20-кратным прогоном.",
+      "category": "debugging-qa",
+      "tags": [
+        "flaky",
+        "tests",
+        "determinism",
+        "ci",
+        "isolation"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/flaky-test-hunter",
+      "totalBytes": 2950,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "c70b56b47ddb006a0efdae405de91b229f593fa1d5275ea30bcc9e95a69b1294",
+          "bytes": 2950
+        }
+      ]
+    },
+    {
+      "id": "game-loop-physics",
+      "name": "game-loop-physics",
+      "description": "Стабильный игровой цикл и физика: фиксированный шаг (fixed timestep accumulator), интерполяция рендера, детерминированные коллизии и защита от «спирали смерти».",
+      "category": "gamedev-media",
+      "tags": [
+        "gamedev",
+        "physics",
+        "fixed-timestep",
+        "collisions",
+        "game-loop"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/game-loop-physics",
+      "totalBytes": 3216,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "c6464b45095bd5c1e471fb123abde501416d6b9e0fd2c314db9606837341917a",
+          "bytes": 3216
+        }
+      ]
+    },
+    {
+      "id": "gguf-quantization-llamacpp",
+      "name": "gguf-quantization-llamacpp",
+      "description": "Квантизация и локальный инференс LLM в llama.cpp: калибровка `llama-imatrix`, выбор Q4/Q5/Q6/Q8, KV-кэш квантизация и замер tok/s + качества.",
+      "category": "ai-agents",
+      "tags": [
+        "gguf",
+        "imatrix",
+        "llama.cpp",
+        "quantization",
+        "inference"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/gguf-quantization-llamacpp",
+      "totalBytes": 3004,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "8e472ff0dfc9f07485ae7472223c3c428c961bb6b00031b77d81ae1bb91d22e4",
+          "bytes": 3004
+        }
+      ]
+    },
+    {
+      "id": "git-worktree-workflows",
+      "name": "git-worktree-workflows",
+      "description": "Мастерская работа с `git worktree` и историей: параллельная разработка и субагенты без stash-ада, чистые коммиты и безопасное восстановление через `reflog`.",
+      "category": "devops-linux",
+      "tags": [
+        "git",
+        "worktree",
+        "branching",
+        "parallel",
+        "rebase"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/git-worktree-workflows",
+      "totalBytes": 2962,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "cc96b6c56723e334fedca54906c2d4389e1da82c169d7f7f6251342b382dcc7f",
+          "bytes": 2962
+        }
+      ]
+    },
+    {
+      "id": "github-actions-cicd",
+      "name": "github-actions-cicd",
+      "description": "Быстрые и безопасные GitHub Actions пайплайны: минимальные `permissions`, кэширование зависимостей, concurrency-отмена и матрица проверок.",
+      "category": "devops-linux",
+      "tags": [
+        "github-actions",
+        "cicd",
+        "workflows",
+        "caching",
+        "security"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/github-actions-cicd",
+      "totalBytes": 2823,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "62c5dd43490f57372f4eba03a10a50db08c9e61e0982e2815290bd97835d4f36",
+          "bytes": 2823
+        }
+      ]
+    },
+    {
+      "id": "go-concurrent-backends",
+      "name": "go-concurrent-backends",
+      "description": "Надёжный Go: `context.Context` в каждой I/O-функции, `errgroup` для горутин без утечек, обёртывание ошибок `%w`, `golangci-lint` и `go test -race`.",
+      "category": "data-systems",
+      "tags": [
+        "golang",
+        "goroutines",
+        "context",
+        "race-detector",
+        "backend"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/go-concurrent-backends",
+      "totalBytes": 2753,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "0cfdfc0c7568bc97d12bad92c1c44e9b24429fa78783c0c6e1cd7f9ad38cdd44",
+          "bytes": 2753
+        }
+      ]
+    },
+    {
+      "id": "gpu-vram-optimization",
+      "name": "gpu-vram-optimization",
+      "description": "Оптимизация GPU VRAM и пропускной способности (CUDA/PyTorch/инференс): бюджет памяти, BF16/FP8, gradient checkpointing, 8-bit AdamW и защита от OOM.",
+      "category": "data-systems",
+      "tags": [
+        "gpu",
+        "vram",
+        "cuda",
+        "pytorch",
+        "oom",
+        "training"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/gpu-vram-optimization",
+      "totalBytes": 3257,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "c0cabebe779bc2ceca780dc7d6f9a54ed359986b0ca1fe0c7cfbf61dab990b63",
+          "bytes": 3257
+        }
+      ]
+    },
+    {
+      "id": "grilling",
+      "name": "grilling",
+      "description": "Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases.",
+      "category": "engineering",
+      "tags": [
+        "planning",
+        "interview",
+        "design-tree",
+        "decisions"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/grilling",
+      "totalBytes": 2251,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "ac7aa0783ccf2234f560375b792d21002b921b0ff09c93a71a454da42f29f106",
+          "bytes": 2138
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "1411d7df7d99b7e621a1ff8283c8133cc2464be63d064e52d8ce169c6800ee9b",
+          "bytes": 113
+        }
+      ]
+    },
+    {
+      "id": "grpc-protobuf-services",
+      "name": "grpc-protobuf-services",
+      "description": "Проектирование и эксплуатация gRPC/Protobuf сервисов: эволюция `.proto` без поломок, deadlines, статусы, streaming и кодогенерация.",
+      "category": "backend-db",
+      "tags": [
+        "grpc",
+        "protobuf",
+        "rpc",
+        "deadlines",
+        "contracts"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/grpc-protobuf-services",
+      "totalBytes": 2645,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "57afe3aebd452a655f55cc772d499113d0f2f9da93acebeb20d7c456e23a5188",
+          "bytes": 2645
+        }
+      ]
+    },
+    {
+      "id": "human-prose-editor",
+      "name": "human-prose-editor",
+      "description": "Редактура текстов до живого, ясного человеческого языка: удаление ИИ-штампов, канцелярита, искусственных контрастов, пустых эпитетов и воды без потери смысла.",
+      "category": "product-docs-bots",
+      "tags": [
+        "writing",
+        "editing",
+        "prose",
+        "clarity",
+        "style"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/human-prose-editor",
+      "totalBytes": 3404,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "dc9e4ae584aca2045807d960dc11c439b2c5deda69654e425626387cbc452995",
+          "bytes": 3404
+        }
+      ]
+    },
+    {
+      "id": "i18n-localization-ru-en",
+      "name": "i18n-localization-ru-en",
+      "description": "Качественная локализация интерфейсов (RU/EN и др.): типизированные словари, правильные плюральные формы (Intl.PluralRules), форматы дат/чисел и защита вёрстки от длинных строк.",
+      "category": "product-docs-bots",
+      "tags": [
+        "i18n",
+        "localization",
+        "russian",
+        "pluralization",
+        "intl"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/i18n-localization-ru-en",
+      "totalBytes": 3401,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "aee354b4d284c395373978cf93f0f52fcb7a23764e7e2f9fcb367996ff70de34",
+          "bytes": 3401
+        }
+      ]
+    },
+    {
+      "id": "incident-postmortem",
+      "name": "incident-postmortem",
+      "description": "Безвиновный (blameless) разбор инцидентов: точный таймлайн, корневые и сопутствующие причины, 5 Whys и измеримые preventive actions.",
+      "category": "debugging-qa",
+      "tags": [
+        "postmortem",
+        "sre",
+        "incident",
+        "rca",
+        "reliability"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/incident-postmortem",
+      "totalBytes": 3123,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "23e78209729c1f9eb1f07c70713f6156406a8dbbfe07a0052576ae089a86250e",
+          "bytes": 3123
+        }
+      ]
+    },
+    {
+      "id": "landing-page-conversion",
+      "name": "landing-page-conversion",
+      "description": "Проектирование высококонверсионных и быстрых лендингов: ясный first-screen оффер, честная визуальная иерархия, Core Web Vitals (LCP/CLS) и мобильная адаптивность.",
+      "category": "product-docs-bots",
+      "tags": [
+        "landing",
+        "ux",
+        "copywriting",
+        "cwv",
+        "conversion"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/landing-page-conversion",
+      "totalBytes": 3271,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "e618f0940d1c413f715a6d41afe4d2c10ae5a9107d6ba0d96c8a3f18d38afb54",
+          "bytes": 3271
+        }
+      ]
+    },
+    {
+      "id": "linux-devops-automation",
+      "name": "linux-devops-automation",
+      "description": "Системное администрирование и автоматизация окружения (EndeavourOS / Arch Linux, Wayland, Git + Git LFS, GitHub CLI, сетевые порты, процессы, установка инструментов без sudo).",
+      "category": "devops-linux",
+      "tags": [
+        "linux",
+        "arch",
+        "wayland",
+        "git",
+        "cli"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/linux-devops-automation",
+      "totalBytes": 6524,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "363c72a86d8f0391bf6c2085c3af84bd3403e68a2191c2a4732ae28986980164",
+          "bytes": 6524
+        }
+      ]
+    },
+    {
+      "id": "linux-hardening-ssh",
+      "name": "linux-hardening-ssh",
+      "description": "Базовое укрепление Linux-серверов и рабочих станций: SSH только по ключам Ed25519, nftables/UFW, минимальные открытые порты и изоляция сервисов.",
+      "category": "security",
+      "tags": [
+        "linux",
+        "ssh",
+        "firewall",
+        "hardening",
+        "ufw"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/linux-hardening-ssh",
+      "totalBytes": 3012,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "29b117dd08181d3fb29abf624f5f39627d76f9ff554db8ee1417a180c3e2f20b",
+          "bytes": 3012
+        }
+      ]
+    },
+    {
+      "id": "load-testing-k6",
+      "name": "load-testing-k6",
+      "description": "Нагрузочное и стресс-тестирование сервисов (k6 / Locust / Vegeta): профили нагрузки, SLO-пороги, выявление точки насыщения и деградации.",
+      "category": "debugging-qa",
+      "tags": [
+        "load-testing",
+        "k6",
+        "stress",
+        "slo",
+        "capacity"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/load-testing-k6",
+      "totalBytes": 2903,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "dd9852c96dd193ccdee74553b02ac9accb88c9fb111fd785d38fd2d412ba0862",
+          "bytes": 2903
+        }
+      ]
+    },
+    {
+      "id": "lora-qlora-finetuning",
+      "name": "lora-qlora-finetuning",
+      "description": "Практика дообучения LLM (SFT, LoRA/QLoRA, DPO+NLL): чистая подготовка данных, защита от забывания, настройка rank/LR и контроль по валидации.",
+      "category": "ai-agents",
+      "tags": [
+        "lora",
+        "qlora",
+        "sft",
+        "dpo",
+        "fine-tuning",
+        "pytorch"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/lora-qlora-finetuning",
+      "totalBytes": 3082,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "b84a3ff44250865e2154f4b141630b72695b108ce943d8d62b7d366aae87af58",
+          "bytes": 3082
+        }
+      ]
+    },
+    {
+      "id": "mcp-server-builder",
+      "name": "mcp-server-builder",
+      "description": "Создание надёжных MCP-серверов (Python/TypeScript): чистые схемы инструментов, stdio JSON-RPC без мусора в stdout, таймауты и безопасные права.",
+      "category": "ai-agents",
+      "tags": [
+        "mcp",
+        "json-rpc",
+        "stdio",
+        "tools",
+        "schemas"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/mcp-server-builder",
+      "totalBytes": 3046,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "7b0cbc6f9f27aa7cf3c753fa3ec5d66ecd400ba91f15e9d5d000512af103cf63",
+          "bytes": 3046
+        }
+      ]
+    },
+    {
+      "id": "memory-leak-detective",
+      "name": "memory-leak-detective",
+      "description": "Поиск и устранение утечек памяти (JS/Node/Electron, Python, JVM, native): 3-snapshot дифф кучи, граф удержания и контроль RSS.",
+      "category": "debugging-qa",
+      "tags": [
+        "memory-leak",
+        "heap-snapshot",
+        "oom",
+        "gc",
+        "profiling"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/memory-leak-detective",
+      "totalBytes": 2782,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "bd1e1d766af766851d875d2c41f2ca17d7638d698c3fe6f4bb20e73d30c069ca",
+          "bytes": 2782
+        }
+      ]
+    },
+    {
+      "id": "micro-interactions-motion",
+      "name": "micro-interactions-motion",
+      "description": "Тактильные микровзаимодействия и физика движения: только compositor-свойства (`transform`, `opacity`), `@starting-style`, `linear()` пружины и `prefers-reduced-motion`.",
+      "category": "frontend-ui",
+      "tags": [
+        "motion",
+        "animations",
+        "css",
+        "spring",
+        "ux"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/micro-interactions-motion",
+      "totalBytes": 3026,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "89659ae8e90e5e2841b3825ac39b7d74768f040f53c6d909a774dbe95eff5d53",
+          "bytes": 3026
+        }
+      ]
+    },
+    {
+      "id": "microservices-boundaries",
+      "name": "microservices-boundaries",
+      "description": "Выделение ограниченных контекстов (DDD), выбор между модульным монолитом и сервисами, transactional outbox и устойчивость к сбоям сети.",
+      "category": "engineering",
+      "tags": [
+        "architecture",
+        "ddd",
+        "modular-monolith",
+        "outbox",
+        "distributed"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/microservices-boundaries",
+      "totalBytes": 3017,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "c7e138d6a9ec0d91eebf734bd3b287c284116da3a151e6383b24ef15a2be1ac3",
+          "bytes": 3017
+        }
+      ]
+    },
+    {
+      "id": "minecraft-datapacks-commands",
+      "name": "minecraft-datapacks-commands",
+      "description": "Разработка датапаков Minecraft 1.21+: актуальный `pack_format`, компонентный формат предметов (Data Components), макросы, предикаты и минимум тик-нагрузки.",
+      "category": "gamedev-media",
+      "tags": [
+        "minecraft",
+        "datapacks",
+        "mcfunction",
+        "nbt",
+        "predicates"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/minecraft-datapacks-commands",
+      "totalBytes": 3137,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "4e0723dc179fbee41f9867be3b00f80857fa95115f9179f9b3627e5e5d4d8456",
+          "bytes": 3137
+        }
+      ]
+    },
+    {
+      "id": "minecraft-mythicmobs-configs",
+      "name": "minecraft-mythicmobs-configs",
+      "description": "Создание боссов, механик и скиллов MythicMobs: чистый модульный YAML, фазы боя, таргетеры с радиусом, защита от спама частиц и TPS-безопасность.",
+      "category": "gamedev-media",
+      "tags": [
+        "minecraft",
+        "mythicmobs",
+        "yaml",
+        "bosses",
+        "skills"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/minecraft-mythicmobs-configs",
+      "totalBytes": 2989,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "939ad1252ccf7369fb1eaaf85409348ed61dd6798c0a94413bd7c0698cde6586",
+          "bytes": 2989
+        }
+      ]
+    },
+    {
+      "id": "minecraft-paper-performance",
+      "name": "minecraft-paper-performance",
+      "description": "Оптимизация серверов Paper/Purpur/Leaf 1.21+: профилирование Spark, тюнинг `paper-world-defaults.yml`, Aikar/ZGC флаги и защита от просадок TPS/MSPT.",
+      "category": "gamedev-media",
+      "tags": [
+        "minecraft",
+        "paper",
+        "purpur",
+        "tps",
+        "spark",
+        "optimization"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/minecraft-paper-performance",
+      "totalBytes": 2861,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "b496591bff8651dcd3e48ff7e399ec2e55415eb772e119e3c966c3dfb67c400c",
+          "bytes": 2861
+        }
+      ]
+    },
+    {
+      "id": "minecraft-plugin-dev",
+      "name": "minecraft-plugin-dev",
+      "description": "Разработка и доработка плагинов и расширений под Paper / Purpur / Leaf 1.21.11 на Java 21 (включая PlaceholderAPI-расширения, интеграции с AuraSkills, MythicMobs, NotQuests, DeluxeMenus, TAB и кастомные механики): потокобезопасность, асинхронные задачи, защита от лагов TPS.",
+      "category": "gamedev-media",
+      "tags": [
+        "minecraft",
+        "paper",
+        "java21",
+        "tps"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/minecraft-plugin-dev",
+      "totalBytes": 5838,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "4666fd35db373a559b3e047bb81784cef2be779109bd684427852f257b2c897c",
+          "bytes": 5838
+        }
+      ]
+    },
+    {
+      "id": "monorepo-architecture",
+      "name": "monorepo-architecture",
+      "description": "Организация монорепозиториев (Bun/pnpm/Turborepo/Cargo): чистый граф пакетов, инкрементальный кэш сборок и контроль границ импортов.",
+      "category": "engineering",
+      "tags": [
+        "monorepo",
+        "workspaces",
+        "turborepo",
+        "boundaries",
+        "builds"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/monorepo-architecture",
+      "totalBytes": 2910,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "44076b4d402106a8950f76301a4e763b158cd65f7a5ea7c6e77bd0133697b80c",
+          "bytes": 2910
+        }
+      ]
+    },
+    {
+      "id": "nextjs-app-router",
+      "name": "nextjs-app-router",
+      "description": "Надёжная архитектура Next.js App Router: чёткая граница Server/Client Components, streaming Suspense, явное кэширование и безопасные Server Actions.",
+      "category": "frontend-ui",
+      "tags": [
+        "nextjs",
+        "rsc",
+        "app-router",
+        "ssr",
+        "caching"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/nextjs-app-router",
+      "totalBytes": 2912,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "16a9d4d90f4139f30f744d1318c6d8c3fa8e5f83a240eee8a7060423937ae21d",
+          "bytes": 2912
+        }
+      ]
+    },
+    {
+      "id": "nginx-caddy-reverse-proxy",
+      "name": "nginx-caddy-reverse-proxy",
+      "description": "Конфигурация обратных прокси Nginx и Caddy: авто-TLS, стриминг SSE/WebSockets без буферизации, заголовки безопасности и rate limiting.",
+      "category": "devops-linux",
+      "tags": [
+        "nginx",
+        "caddy",
+        "reverse-proxy",
+        "tls",
+        "sse",
+        "websockets"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/nginx-caddy-reverse-proxy",
+      "totalBytes": 2573,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "aedeaa3d839b16da5ee5d09712094ddbc6d97c0d5fa65bcf3ed51f921c5ec1dd",
+          "bytes": 2573
+        }
+      ]
+    },
+    {
+      "id": "nodejs-bun-services",
+      "name": "nodejs-bun-services",
+      "description": "Высокопроизводительные backend-сервисы на Bun и Node.js: Web Streams, graceful shutdown (`SIGTERM`), строгая валидация схем и контроль памяти.",
+      "category": "backend-db",
+      "tags": [
+        "bun",
+        "nodejs",
+        "typescript",
+        "backend",
+        "streams"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/nodejs-bun-services",
+      "totalBytes": 2837,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "5a221afcbab53dc323c91b8552966681ec071aa7d824fc4b4032ab8dd1f34171",
+          "bytes": 2837
+        }
+      ]
+    },
+    {
+      "id": "observability-logs-metrics",
+      "name": "observability-logs-metrics",
+      "description": "Наблюдаемость сервисов: структурированные JSON-логи, RED/USE метрики, OpenTelemetry трассировка и осмысленные алерты без шума.",
+      "category": "devops-linux",
+      "tags": [
+        "observability",
+        "logging",
+        "metrics",
+        "opentelemetry",
+        "alerts"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/observability-logs-metrics",
+      "totalBytes": 2895,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "02899cc9c7d3e990c268a2d1ed58b8d5fed2c8d6913622017a47179c7d4c2dc6",
+          "bytes": 2895
+        }
+      ]
+    },
+    {
+      "id": "owasp-web-audit",
+      "name": "owasp-web-audit",
+      "description": "Структурированный аудит веб-приложений и API по OWASP Top 10 / ASVS: контроль доступа, SSRF, инъекции, небезопасные дефолты и отчёт с PoC.",
+      "category": "security",
+      "tags": [
+        "owasp",
+        "security",
+        "audit",
+        "appsec",
+        "vulnerabilities"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/owasp-web-audit",
+      "totalBytes": 2972,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "17ab9dbe1f6a713606c3c3ef39d04a059a6cbdb13770a419dd8cf6bd9f0fab43",
+          "bytes": 2972
+        }
+      ]
+    },
+    {
+      "id": "pandas-polars-pipelines",
+      "name": "pandas-polars-pipelines",
+      "description": "Быстрые и экономные дата-пайплайны (Polars / DuckDB / Pandas): ленивые графы, Parquet, векторизация вместо Python-циклов и контроль схем.",
+      "category": "data-systems",
+      "tags": [
+        "polars",
+        "pandas",
+        "parquet",
+        "etl",
+        "data-engineering"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/pandas-polars-pipelines",
+      "totalBytes": 2887,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "bf0fceabedf85eb7f1b7be05f5bd33bac9b0890df2c8e1140433450dfb182bff",
+          "bytes": 2887
+        }
+      ]
+    },
+    {
+      "id": "performance-profiling",
+      "name": "performance-profiling",
+      "description": "Оптимизация производительности по измерениям: профилирование CPU/IO flamegraph, p50/p95/p99 и устранение реальных узких мест без гаданий.",
+      "category": "debugging-qa",
+      "tags": [
+        "profiling",
+        "flamegraph",
+        "latency",
+        "cpu",
+        "optimization"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/performance-profiling",
+      "totalBytes": 2803,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "a81c73ffb61aa9deceedd549d701baa00b2d0ef8e06fed2eb32fac7ac39e84a6",
+          "bytes": 2803
+        }
+      ]
+    },
+    {
+      "id": "postgresql-query-tuning",
+      "name": "postgresql-query-tuning",
+      "description": "Тюнинг PostgreSQL по `EXPLAIN (ANALYZE, BUFFERS)`: составные/частичные индексы, устранение Seq Scan и N+1, безопасные пулы соединений.",
+      "category": "backend-db",
+      "tags": [
+        "postgresql",
+        "sql",
+        "indexes",
+        "explain",
+        "performance"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/postgresql-query-tuning",
+      "totalBytes": 2774,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "705b6b1e0fe679b23f76896eeda508b64e189e9421a3952284574becafb1b03b",
+          "bytes": 2774
+        }
+      ]
+    },
+    {
+      "id": "prd-spec-writer",
+      "name": "prd-spec-writer",
+      "description": "Написание чётких продуктовых и технических спецификаций (PRD/RFC): цель и анти-цели (Non-Goals), пользовательские сценарии, краевые случаи и критерии приёмки.",
+      "category": "product-docs-bots",
+      "tags": [
+        "prd",
+        "spec",
+        "requirements",
+        "acceptance-criteria",
+        "planning"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/prd-spec-writer",
+      "totalBytes": 2996,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "a8ade6cd884d5aa35abb102ca1221f1d65efc1701ee23055f70a1c7e37a58a5f",
+          "bytes": 2996
+        }
+      ]
+    },
+    {
+      "id": "prompt-engineering-evals",
+      "name": "prompt-engineering-evals",
+      "description": "Инженерный подход к промптам и LLM-эвалам: детерминированные кейсы, рубрики, JSON-схемы, регрессионный контроль и защита от prompt injection.",
+      "category": "ai-agents",
+      "tags": [
+        "prompts",
+        "evals",
+        "structured-output",
+        "llm",
+        "rubric"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/prompt-engineering-evals",
+      "totalBytes": 3114,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "e7eff911e948348acec53d6a7f78824cf656cd88b0d0c605e9a06eccf3ca9189",
+          "bytes": 3114
+        }
+      ]
+    },
+    {
+      "id": "python-modern-uv-ruff",
+      "name": "python-modern-uv-ruff",
+      "description": "Современная разработка на Python 3.12+: управление окружениями через `uv`, `pyproject.toml`, линтинг/форматинг `ruff`, строгие аннотации типов и `pytest`.",
+      "category": "data-systems",
+      "tags": [
+        "python",
+        "uv",
+        "ruff",
+        "typing",
+        "pytest"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/python-modern-uv-ruff",
+      "totalBytes": 2634,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "7321dde6c0b9f1441b5363d294b6b61c47fc378c7d7e77a38300916fb44672b7",
+          "bytes": 2634
+        }
+      ]
+    },
+    {
+      "id": "rag-hybrid-search",
+      "name": "rag-hybrid-search",
+      "description": "Построение точного RAG: умный чанкинг с метаданными, гибридный поиск (BM25 + dense embeddings + RRF), реранкинг и проверяемые цитаты.",
+      "category": "ai-agents",
+      "tags": [
+        "rag",
+        "hybrid-search",
+        "bm25",
+        "embeddings",
+        "reranker"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/rag-hybrid-search",
+      "totalBytes": 3076,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "77ea8d676d69029ef65e848cf2db9a2bcfc09bcbb397d8a133df70604fbb9051",
+          "bytes": 3076
+        }
+      ]
+    },
+    {
+      "id": "react-19-patterns",
+      "name": "react-19-patterns",
+      "description": "Современные паттерны React 19: чистый поток данных, устранение лишних useEffect, Actions/useTransition, ключи сброса и стабильность рендеров.",
+      "category": "frontend-ui",
+      "tags": [
+        "react19",
+        "hooks",
+        "state",
+        "rendering",
+        "frontend"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/react-19-patterns",
+      "totalBytes": 3016,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "a6b22f9f70a23eb065d429599952aff4b7e8f96132dafebf27a7938dd7418f17",
+          "bytes": 3016
+        }
+      ]
+    },
+    {
+      "id": "readme-open-source-polish",
+      "name": "readme-open-source-polish",
+      "description": "Полировка `README.md` для GitHub-репозиториев: ясное ценностное предложение в первом экране, живой скриншот/демо, 3-шаговая установка, архитектура и лицензия.",
+      "category": "product-docs-bots",
+      "tags": [
+        "readme",
+        "github",
+        "open-source",
+        "onboarding",
+        "docs"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/readme-open-source-polish",
+      "totalBytes": 2939,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "e75ba192edbe1353e371707c31aef9319281c4a64228a67c2842bd477212e6be",
+          "bytes": 2939
+        }
+      ]
+    },
+    {
+      "id": "redis-caching-queues",
+      "name": "redis-caching-queues",
+      "description": "Грамотное использование Redis: cache-aside с защитой от stampede, обязательные TTL, потоки (Streams), rate limiting и мягкая деградация.",
+      "category": "backend-db",
+      "tags": [
+        "redis",
+        "cache",
+        "rate-limit",
+        "queues",
+        "ttl"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/redis-caching-queues",
+      "totalBytes": 2881,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "5224b137ffc87c8265de18848ef7e63c27d87a56fe25ac83ad31b11cb0825673",
+          "bytes": 2881
+        }
+      ]
+    },
+    {
+      "id": "refactoring-legacy",
+      "name": "refactoring-legacy",
+      "description": "Пошаговый безопасный рефакторинг легаси-кода через characterization-тесты, strangler-fig и малые обратимые коммиты.",
+      "category": "engineering",
+      "tags": [
+        "refactoring",
+        "legacy",
+        "strangler-fig",
+        "characterization-tests"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/refactoring-legacy",
+      "totalBytes": 3029,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "bd92e45545dd8a646dbfc9bbf0c066ef236eb97a3e7c6702a9b0f8096bbab9e3",
+          "bytes": 3029
+        }
+      ]
+    },
+    {
+      "id": "regex-parsing-grammars",
+      "name": "regex-parsing-grammars",
+      "description": "Безопасные регулярные выражения и парсеры: защита от катастрофического бэктрекинга (ReDoS), читаемые `VERBOSE` паттерны и своевременный переход к AST/токенизатору.",
+      "category": "data-systems",
+      "tags": [
+        "regex",
+        "redos",
+        "parsers",
+        "ast",
+        "grammars"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/regex-parsing-grammars",
+      "totalBytes": 3291,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "65dcd2683548b9b240b440be368148c75c30e5ab26e54424aa61c3c4c9ce79b1",
+          "bytes": 3291
+        }
+      ]
+    },
+    {
+      "id": "remotion-video-scripting",
+      "name": "remotion-video-scripting",
+      "description": "Программное создание видео на Remotion: детерминированные кадры от `useCurrentFrame()`, физика `spring()`/`interpolate()`, композиции, субтитры и чистый рендер.",
+      "category": "gamedev-media",
+      "tags": [
+        "remotion",
+        "video",
+        "react",
+        "motion-graphics",
+        "rendering"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/remotion-video-scripting",
+      "totalBytes": 3125,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "8d9b507486bcd7319c99f3f6b50e96e3f1ff1441520d773e086ba448c8820eac",
+          "bytes": 3125
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "name": "research",
+      "description": "Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated to a background agent.",
+      "category": "ai-agents",
+      "tags": [
+        "research",
+        "docs",
+        "primary-sources",
+        "investigation"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/research",
+      "totalBytes": 978,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "892fe34ba819a34e8b01a17de71b4fd5c8cdd9070c235ce9550383a0cfa938ba",
+          "bytes": 884
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "9b4c470d63221c1f68f22df70b83e2f12401b317babe0d1b7b5f24a974474d0d",
+          "bytes": 94
+        }
+      ]
+    },
+    {
+      "id": "rlvr-grpo-posttraining",
+      "name": "rlvr-grpo-posttraining",
+      "description": "Пост-обучение с проверяемыми наградами (RLVR, ReST-EM, Dr. GRPO, DAPO): надёжные песочницы-верификаторы, фильтрация по золотым решениям и защита от reward hacking.",
+      "category": "ai-agents",
+      "tags": [
+        "rlvr",
+        "grpo",
+        "dapo",
+        "rest-em",
+        "verifier",
+        "post-training"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/rlvr-grpo-posttraining",
+      "totalBytes": 3242,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "41c384079abe1c57be70d42fba0a93f0f1cbaf19fb93aad9b705dac907c40fbe",
+          "bytes": 3242
+        }
+      ]
+    },
+    {
+      "id": "rust-safe-systems",
+      "name": "rust-safe-systems",
+      "description": "Идиоматичный и безопасный Rust: чистый borrow checker без лишних `.clone()`, явная обработка ошибок (`thiserror`/`anyhow`), `clippy` и нулевой `unwrap()` в проде.",
+      "category": "data-systems",
+      "tags": [
+        "rust",
+        "cargo",
+        "clippy",
+        "ownership",
+        "systems"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/rust-safe-systems",
+      "totalBytes": 2798,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "35a0d0fa5ada1e37e33fe0cfdc7158383fd220cb3f5425e78f1616e64d60cbeb",
+          "bytes": 2798
+        }
+      ]
+    },
+    {
+      "id": "sandbox-iframe-csp",
+      "name": "sandbox-iframe-csp",
+      "description": "Безопасная песочница для превью HTML/SVG/JS-артефактов: строгий `Content-Security-Policy`, `iframe sandbox` без `allow-same-origin` и UTF-8 Blob URLs.",
+      "category": "security",
+      "tags": [
+        "csp",
+        "iframe",
+        "sandbox",
+        "blob",
+        "isolation"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/sandbox-iframe-csp",
+      "totalBytes": 2948,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "d78aba52f3f0d8394434ca8b576b43463e73d9560ea16d44e212157c61d9a9f9",
+          "bytes": 2948
+        }
+      ]
+    },
+    {
+      "id": "scraping-ethics-parsers",
+      "name": "scraping-ethics-parsers",
+      "description": "Надёжный и этичный парсинг веб-документов и открытых API: уважение `robots.txt` и rate-limits, устойчивые селекторы, кэширование и никогда не обходить CAPTCHA/авторизацию.",
+      "category": "data-systems",
+      "tags": [
+        "parsing",
+        "html",
+        "etl",
+        "robots",
+        "resilience"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/scraping-ethics-parsers",
+      "totalBytes": 3236,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "a8f1503fe2127741a6d43411b23ce213c378c4416c8e850393004ac88c08bb3b",
+          "bytes": 3236
+        }
+      ]
+    },
+    {
+      "id": "secrets-hygiene-scanner",
+      "name": "secrets-hygiene-scanner",
+      "description": "Гигиена секретов и ключей: предотвращение утечек в Git/логи/фронтенд, хранение ключей с правами `0600` и протокол экстренной ротации.",
+      "category": "security",
+      "tags": [
+        "secrets",
+        "credentials",
+        "env",
+        "git",
+        "security"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/secrets-hygiene-scanner",
+      "totalBytes": 3146,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "63633c1efeba688be47c22ae16afc724cb663f6b07927005b825c406841f4914",
+          "bytes": 3146
+        }
+      ]
+    },
+    {
+      "id": "sql-analytics-reporting",
+      "name": "sql-analytics-reporting",
+      "description": "Аналитический SQL без искажений: читаемые CTE, оконные функции, когорты/воронки, контроль таймзон и защита от дублирования агрегатов при JOIN.",
+      "category": "product-docs-bots",
+      "tags": [
+        "sql",
+        "analytics",
+        "cte",
+        "window-functions",
+        "cohorts"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/sql-analytics-reporting",
+      "totalBytes": 3016,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "938f81d5b57cb8c153e64249ca707a8640a97f0d19429ada44d61e00f9b91d89",
+          "bytes": 3016
+        }
+      ]
+    },
+    {
+      "id": "sql-xss-injection-guard",
+      "name": "sql-xss-injection-guard",
+      "description": "Надёжная защита от инъекций (SQLi, XSS, Command Injection, Path Traversal): параметризация, `execFile` вместо `shell`, DOMPurify и канонизация путей.",
+      "category": "security",
+      "tags": [
+        "sqli",
+        "xss",
+        "command-injection",
+        "path-traversal",
+        "sanitization"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/sql-xss-injection-guard",
+      "totalBytes": 3002,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "b10055c4f359bc85ba8d439bf4947a1338254b4b35708b22a484b106d3435b70",
+          "bytes": 3002
+        }
+      ]
+    },
+    {
+      "id": "sqlite-local-first",
+      "name": "sqlite-local-first",
+      "description": "Надёжный SQLite для десктопных и local-first приложений: режим WAL, `busy_timeout`, `PRAGMA foreign_keys`, FTS5 поиск и атомарные бэкапы.",
+      "category": "backend-db",
+      "tags": [
+        "sqlite",
+        "wal",
+        "local-first",
+        "fts5",
+        "embedded"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/sqlite-local-first",
+      "totalBytes": 2741,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "9493e224807baba1fa49135bbcfe7e057468885e5011c5d50f3cd8c3d048c56b",
+          "bytes": 2741
+        }
+      ]
+    },
+    {
+      "id": "systemd-user-services",
+      "name": "systemd-user-services",
+      "description": "Настройка надёжных systemd (user и system) юнитов: автоперезапуск, `EnvironmentFile`, лимиты ресурсов, зависимости и диагностика через `journalctl`.",
+      "category": "devops-linux",
+      "tags": [
+        "systemd",
+        "linux",
+        "daemons",
+        "journalctl",
+        "services"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/systemd-user-services",
+      "totalBytes": 2846,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "6e5d36ee4450c9756e2992dbead1631c75e87e35186a20830b2b2a343ad161ae",
+          "bytes": 2846
+        }
+      ]
+    },
+    {
+      "id": "tailwind-architecture",
+      "name": "tailwind-architecture",
+      "description": "Чистая архитектура Tailwind CSS v4: `@theme` токены, типобезопасные варианты (`cva`/`tailwind-merge`), отсутствие «супа из классов» и малый бандл.",
+      "category": "frontend-ui",
+      "tags": [
+        "tailwind",
+        "css",
+        "variants",
+        "cva",
+        "components"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/tailwind-architecture",
+      "totalBytes": 2856,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "764c07f1b50e81809e280d494538f95c72b78627f8103a6106425e04eeb645fc",
+          "bytes": 2856
+        }
+      ]
+    },
+    {
+      "id": "tdd",
+      "name": "tdd",
+      "description": "Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\", or wants integration tests.",
+      "category": "debugging-qa",
+      "tags": [
+        "tdd",
+        "testing",
+        "red-green-refactor",
+        "unit-tests"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/tdd",
+      "totalBytes": 7502,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "619200430f58c16533580baae3b0e6b197be4fdb974facc636ccfcc50ca0fa1d",
+          "bytes": 3720
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "ea6f01cf1b8c06a4b0f5b649d74b1b8ce8685e72af1b38d70d877693e092af0b",
+          "bytes": 87
+        },
+        {
+          "path": "mocking.md",
+          "sha256": "3ceb807fdf4a47d6a93d4d9a891e5ba6d362a6247bd08adc451feebfc17361ef",
+          "bytes": 1481
+        },
+        {
+          "path": "tests.md",
+          "sha256": "859f9e592c188fda4fc7277dd180e4ce9c7a2e13f6efe1f6f29eccc9d28c106a",
+          "bytes": 2214
+        }
+      ]
+    },
+    {
+      "id": "technical-writing-docs",
+      "name": "technical-writing-docs",
+      "description": "Инженерная документация по Diátaxis: чёткое разделение туториалов, how-to гайдов, справочника API и архитектурных объяснений с проверенными примерами.",
+      "category": "product-docs-bots",
+      "tags": [
+        "docs",
+        "diataxis",
+        "technical-writing",
+        "architecture",
+        "guides"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/technical-writing-docs",
+      "totalBytes": 3008,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "296cc64713b664b1cc42ae6ee34c2fae1fd73316cf0d2b634b01066cebe48fb2",
+          "bytes": 3008
+        }
+      ]
+    },
+    {
+      "id": "telegram-bot-aiogram",
+      "name": "telegram-bot-aiogram",
+      "description": "Продакшен Telegram-боты на aiogram 3 (Python): модульные роутеры, FSM-состояния, безопасный HTML-формат, анти-флуд middleware и graceful polling/webhook.",
+      "category": "product-docs-bots",
+      "tags": [
+        "telegram",
+        "aiogram",
+        "bots",
+        "fsm",
+        "python"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/telegram-bot-aiogram",
+      "totalBytes": 2896,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "bdacc14f6eb538d0c13fdc60023ad792a526b769adbca83d386e7a0a4fa50aab",
+          "bytes": 2896
+        }
+      ]
+    },
+    {
+      "id": "threat-modeling-stride",
+      "name": "threat-modeling-stride",
+      "description": "Быстрое моделирование угроз по STRIDE на этапе проектирования: диаграмма потоков данных (DFD), границы доверия и приоритетные меры защиты.",
+      "category": "security",
+      "tags": [
+        "threat-modeling",
+        "stride",
+        "architecture",
+        "security-design"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/threat-modeling-stride",
+      "totalBytes": 2920,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "04101adbdfc1065a3ef81fa5c5dc2fa9a005b2d9d721f97c985890976671986d",
+          "bytes": 2920
+        }
+      ]
+    },
+    {
+      "id": "threejs-webgl-shaders",
+      "name": "threejs-webgl-shaders",
+      "description": "Интерактивная 3D-графика на Three.js / WebGL: контроль draw calls (InstancedMesh), корректный `dispose()` ресурсов GPU, освещение и GLSL-шейдеры.",
+      "category": "gamedev-media",
+      "tags": [
+        "threejs",
+        "webgl",
+        "glsl",
+        "3d",
+        "performance"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/threejs-webgl-shaders",
+      "totalBytes": 2965,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "52c2d183d3ffb90bbb6623896503dc4ef18fd22cf547e55a4ef59333d6343b1d",
+          "bytes": 2965
+        }
+      ]
+    },
+    {
+      "id": "typescript-strict-types",
+      "name": "typescript-strict-types",
+      "description": "Строгий TypeScript без `any`: discriminated unions, `unknown` + сужение типов, `satisfies`, типобезопасные границы I/O и нулевой дрейф контрактов.",
+      "category": "frontend-ui",
+      "tags": [
+        "typescript",
+        "strict",
+        "discriminated-unions",
+        "zod",
+        "type-safety"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/typescript-strict-types",
+      "totalBytes": 2850,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "4dc1551fd7cac656b1c85eab0c8a19fc6dae3facb0f2295545276104944ce37f",
+          "bytes": 2850
+        }
+      ]
+    },
+    {
+      "id": "verification-before-completion",
+      "name": "verification-before-completion",
+      "description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always",
+      "category": "engineering",
+      "tags": [
+        "verification",
+        "evidence",
+        "ci",
+        "testing"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/verification-before-completion",
+      "totalBytes": 3727,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "878c17e5995580bf00a0595558acdd5cb642643ab364621f9584b84d59cb2c13",
+          "bytes": 3727
+        }
+      ]
+    },
+    {
+      "id": "vite-bundle-optimizer",
+      "name": "vite-bundle-optimizer",
+      "description": "Оптимизация сборки и времени загрузки Vite/Rollup: анализ чанков, ленивая подгрузка тяжёлых зависимостей, tree-shaking и ассеты.",
+      "category": "frontend-ui",
+      "tags": [
+        "vite",
+        "bundle",
+        "code-splitting",
+        "tree-shaking",
+        "performance"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/vite-bundle-optimizer",
+      "totalBytes": 2865,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "41732e801df063d0c64b708aeefb1ae56b891d7acf4bc7d0c0edd59f47818449",
+          "bytes": 2865
+        }
+      ]
+    },
+    {
+      "id": "wayland-niri-poweruser",
+      "name": "wayland-niri-poweruser",
+      "description": "Настройка и отладка рабочего окружения Wayland и композитора Niri: KDL-конфиг, биндинги, Ozone-флаги Electron/Chromium, `wl-clipboard` и порталы.",
+      "category": "devops-linux",
+      "tags": [
+        "wayland",
+        "niri",
+        "kdl",
+        "linux-desktop",
+        "ozone",
+        "clipboard"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/wayland-niri-poweruser",
+      "totalBytes": 2715,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "4e0999ff4446a02fbf41c459cce7f51bec67767607caf772a0bdfbf2b147c530",
+          "bytes": 2715
+        }
+      ]
+    },
+    {
+      "id": "web-accessibility-wcag",
+      "name": "web-accessibility-wcag",
+      "description": "Доступность интерфейсов по WCAG 2.2 AA: семантический HTML, полная клавиатурная навигация, WAI-ARIA combobox/dialog и контрастность.",
+      "category": "frontend-ui",
+      "tags": [
+        "a11y",
+        "wcag",
+        "aria",
+        "keyboard",
+        "focus"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/web-accessibility-wcag",
+      "totalBytes": 2759,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "b6279b300987091d2ebdfe1bdb43137acdc20c441650d55fb7d5460c3c7c8167",
+          "bytes": 2759
+        }
+      ]
+    },
+    {
+      "id": "webapp-testing",
+      "name": "webapp-testing",
+      "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
+      "category": "debugging-qa",
+      "tags": [
+        "playwright",
+        "e2e",
+        "browser",
+        "frontend-qa"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/webapp-testing",
+      "totalBytes": 22478,
+      "files": [
+        {
+          "path": "LICENSE.txt",
+          "sha256": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+          "bytes": 11345
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "ce7f153036ee9e8b8a84a717998b31f0d8e26f8debcb240dffdb13a2298e5ec8",
+          "bytes": 3997
+        },
+        {
+          "path": "examples/console_logging.py",
+          "sha256": "ea46877289acb82da7e7ce59d0bc37c8977cd57e2a006d0c88d7a1c625bf95da",
+          "bytes": 1027
+        },
+        {
+          "path": "examples/element_discovery.py",
+          "sha256": "d63c89604a22f8845d724e95dda45db49b1bf57c25ce0a83afbb7b8da3d402f0",
+          "bytes": 1463
+        },
+        {
+          "path": "examples/static_html_automation.py",
+          "sha256": "9d533aafb875ee3ab8b8ebf8f5b9003ac8d999da3d09b285cce252e623140064",
+          "bytes": 953
+        },
+        {
+          "path": "scripts/with_server.py",
+          "sha256": "b0dcf4918935b795f4eda9821579b9902119235ff4447f687a30286e7d0925fd",
+          "bytes": 3693
+        }
+      ]
+    },
+    {
+      "id": "websockets-sse-realtime",
+      "name": "websockets-sse-realtime",
+      "description": "Надёжный real-time стриминг (SSE и WebSockets): переподключение с backoff, `Last-Event-ID`, heartbeat, контроль буферов и чистое закрытие.",
+      "category": "backend-db",
+      "tags": [
+        "sse",
+        "websockets",
+        "streaming",
+        "realtime",
+        "reconnect"
+      ],
+      "version": "1.0.0",
+      "featured": false,
+      "path": "skills/websockets-sse-realtime",
+      "totalBytes": 3131,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "4f5b1bc8e097a01cda8f3587d56f0db636f40a6aa12dad4563634e3ab5d23dc8",
+          "bytes": 3131
+        }
+      ]
+    }
+  ]
+}
