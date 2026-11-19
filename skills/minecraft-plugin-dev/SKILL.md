@@ -1,51 +1,42 @@
 ---
 name: minecraft-plugin-dev
 description: >-
-  Разработка и доработка плагинов и расширений под Paper / Purpur / Leaf 1.21.11 на Java 21
-  (включая PlaceholderAPI-расширения, интеграции с AuraSkills, MythicMobs, NotQuests, DeluxeMenus,
-  TAB и кастомные механики): потокобезопасность, асинхронные задачи, защита от лагов TPS.
+  Разработка и оптимизация Java 21 плагинов под Paper / Purpur 1.21+: Paper API, Adventure/MiniMessage,
+  PersistentDataContainer (PDC), безопасные асинхронные задачи, защита TPS/MSPT и чистые soft-depend интеграции.
 category: gamedev-media
-tags: [minecraft, paper, java21, tps]
-version: 1.0.0
+tags: [minecraft, paper, purpur, java21, adventure, tps]
+version: 1.1.0
 ---
 
-# Minecraft Paper / Purpur / Leaf 1.21.11 Plugin Development
+# Minecraft Plugin Development (Paper / Purpur 1.21+, Java 21)
 
-Используй этот скилл при разработке, компиляции и интеграции Java-плагинов и расширений PlaceholderAPI для серверов Minecraft на базе Paper / Purpur / Leaf 1.21.11.
+Стандарт создания надёжных, быстрых и потокобезопасных плагинов для современных серверов Minecraft на базе Paper / Purpur (Java 21).
 
-## 1. Среда разработки и компиляция (Java 21)
-- Компилятор: `~/.local/share/jvm/temurin-21/bin/javac`
-- Архиватор: `~/.local/share/jvm/temurin-21/bin/jar`
-- Ядро сервера (API): JAR ядра Paper / Leaf 1.21.11 (или папка `libraries/` в директории целевого сервера)
-- Стандарт компиляции: `--release 21 -proc:none`
+## Когда применять
+- Разработка новых Java-плагинов, команд, ивентов, кастомных предметов, GUI-меню и механик под Paper/Purpur 1.21+.
+- Интеграция с экосистемой плагинов (PlaceholderAPI, Vault, WorldGuard, MythicMobs и др.) через `softdepend` / `paper-plugin.yml`.
+- Оптимизация существующих плагинов для устранения просадок TPS / MSPT и ошибок многопоточности.
 
-## 2. Ключевые RPG-интеграции
-1. **PlaceholderAPI расширения (`Expansion-<Name>.jar`)**:
-   - Расположение: `plugins/PlaceholderAPI/expansions/` в директории сервера
-   - Плейсхолдеры здоровья, маны, уровней, активных квестов и баланса.
-2. **AuraSkills API (`AuraSkills-2.4.0.jar`)**:
-   - Получение и изменение маны игрока (`ManaManager`).
-   - Получение уровней навыков и статов (`SkillsUser`, `Stats`).
-3. **MythicMobs API (`MythicMobs-5.14.0.jar`)**:
-   - Кастомные спавнеры боссов, триггеры фаз боя и кастомные эффекты.
-4. **NotQuests & FancyNpcs**:
-   - Триггеры выполнения квестовых этапов и диалоги с NPC.
+## Рабочий протокол
+1. **Сборка и зависимости:** используй Gradle (`io.papermc.paper:paper-api:1.21.x-R0.1-SNAPSHOT`) или Maven с `--release 21`. Храни метаданные в `paper-plugin.yml` (или `plugin.yml` с явным `api-version: '1.21'`), внешние API подключай как `compileOnly` + `softdepend` с проверкой `PluginManager#isPluginEnabled`.
+2. **Тексты через Adventure / MiniMessage:** используй `Component` и `MiniMessage.miniMessage().deserialize(...)` вместо устаревших `ChatColor` и legacy-кодов `§`.
+3. **Данные на предметах и сущностях:** храни кастомные теги в `PersistentDataContainer` (`NamespacedKey`) и актуальных Paper Data Components, а не парся `displayName` или строки `lore`.
+4. **Потокобезопасность и TPS:**
+   - **Никогда** не выполняй SQL, HTTP, дисковый I/O или тяжёлые вычисления на главном тик-потоке сервера — выноси в async scheduler (`getAsyncScheduler()` / `runTaskAsynchronously`).
+   - **Никогда** не изменяй мир, блоки, сущности или инвентари из асинхронного потока — возвращай мутации на главный/региональный поток (совместимо с Paper и Folia).
+5. **Защита краевых случаев:** проверяй `player.isOnline()`, `null` для `ItemMeta` / `Block` / `OfflinePlayer`, права (`hasPermission`), защиту от дюпов в `InventoryClickEvent`/`InventoryDragEvent` (отмена shift-click, number keys, offhand swap) и очистку `Map<UUID, ...>` на `PlayerQuitEvent`.
+6. **Конфиги и локализация:** валидируй YAML-конфиги при `onEnable()` / `/reload`, задавай безопасные дефолты и не глотай исключения молча — логируй через `getLogger()` / SLF4J.
 
-## 3. Правила потокобезопасности и TPS
-- Никогда не вызывай синхронные методы работы с миром (`getBlockAt`, `getEntities`, `teleport`) из асинхронных потоков — это вызывает мгновенный `IllegalStateException: Asynchronous Chunk call!`.
-- Для тяжелых вычислений (поиск путей, парсинг данных) используй асинхронный поток (`runTaskAsynchronously`), а для применения изменений в мир возвращайся в главный поток через `runTask`.
-- Для телепортации всегда используй Paper-нативный `player.teleportAsync()`.
+## Чеклист качества
+- [ ] Нет синхронных БД/HTTP/файловых вызовов в слушателях событий (`PlayerMoveEvent`, `BlockBreakEvent`, `EntityDamageEvent`)
+- [ ] Все per-player кэши и задачи очищаются при выходе игрока и в `onDisable()`
+- [ ] Кастомные GUI-меню идентифицируются через собственный `InventoryHolder` (а не по заголовку строки!) и защищены от дюпа
+- [ ] Все строки локализуемы через Adventure/MiniMessage без хардкода `§`
 
-## 4. Minecraft 1.21.11 Механики Fabric
-- **Карта и навигация (JourneyMap 1.21.11 Fabric)**:
-  - Мод `journeymap-fabric-1.21.11-6.0.0.jar`: установлен в сборку клиента `smaka/mods/` и на сервер в `mods/`. Включает встроенные библиотеки `common-networking-fabric`, миникарту, полноэкранную карту (`J`), смерть-поинты и путевые точки.
+## Антипаттерны (чего избегать)
+- Запускать `Bukkit.getOfflinePlayer(name)` синхронно (может делать блокирующий сетевой запрос Mojang!)
+- Хранить сильные ссылки на объекты `Player` в `Map<Player, ...>` вместо `Map<UUID, ...>` (утечка памяти после выхода игрока)
+- Использовать `PlayerMoveEvent` для тяжёлых проверок без фильтрации смены блока (`hasChangedBlock()`)
 
-- **Кастомные рецепты и утилиты**:
-  - Датапак `dndlns_wool_to_strings.zip` (DNDLN's Wool to Strings): бесформенный крафт 1 любого блока шерсти (`#minecraft:wool`) в 4 нити (`minecraft:string` x4). Установлен на сервер в `world/datapacks/` и в локальные миры.
-
-  1) Датапак `zero_level_enchanting.zip`: переопределяет все 43 зачарования (`anvil_cost: 0`, `min_cost: 1`, `max_cost: 100`), открывает сокровищные чары (Починка/Mending) на столе через `tags/enchantment/in_enchanting_table.json`, а также включает тег `#power_all:all_weapons` с поддержкой булавы (`#minecraft:enchantable/mace`), мечей, топоров и трезубцев. Зачарование «Сила» (Power I–V) увеличивает урон ближнего боя, а «Быстрая перезарядка» (Quick Charge I–III) добавляет атрибут `minecraft:attack_speed` (+25% за уровень), разгоняя скорость ударов меча и булавы.
-  2) Fabric-мод `zerocostenchant-1.0.0.jar`:
-     - Наковальня: убирает лимит 40 уровней («Слишком дорого!»), устанавливает стоимость 0 уровней, разрешает забирать предмет при 0 XP (`canTakeOutput`), предотвращает накопление штрафа починки.
-     - Стол зачарований: перенаправляет проверки уровня и лазурита, позволяя чарить без опыта и лазурита, не списывает XP, усиливает 3-й слот до максимальной мощности (power 30).
-     - Разблокировка `/tp` и `/teleport` без OP (`TeleportCommandMixin`): перехватывает вызовы `LiteralArgumentBuilder.requires` в `net.minecraft.class_3143.method_13760`, заменяя проверку оператора (level 2) на `source -> true`. Это позволяет обычным игрокам без OP использовать `/tp` с полным серверным автодополнением, оставляя все остальные команды закрытыми.
-
+## Верификация перед завершением
+Собери JAR (`./gradlew build` или `mvn package`), убедись в 0 ошибок компиляции на Java 21, проверь `paper-plugin.yml`/`plugin.yml` и прогони юнит-тесты логики (MockBukkit / JUnit 5) или тестовый запуск на локальном Paper-сервере без ошибок в консоли.

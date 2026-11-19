@@ -1,99 +1,40 @@
 ---
 name: webapp-testing
-description: Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.
-license: Complete terms in LICENSE.txt
+description: >-
+  Инструментарий и протокол тестирования локальных веб-приложений и Electron UI через Playwright
+  и headless Chromium: проверка DOM, перехват консольных/сетевых ошибок, визуальные скриншоты и E2E.
 category: debugging-qa
-tags: [playwright, e2e, browser, frontend-qa]
-version: 1.0.0
+tags: [playwright, e2e, browser, frontend-qa, screenshots]
+version: 1.1.0
 ---
 
-# Web Application Testing
+# Web Application Testing (Playwright & Headless QA)
 
-To test local web applications, write native Python Playwright scripts.
+Протокол надёжного автоматического и визуального тестирования локальных веб-приложений, SPA и Electron-рендереров.
 
-**Helper Scripts Available**:
-- `scripts/with_server.py` - Manages server lifecycle (supports multiple servers)
+## Когда применять
+- Проверка интерактивных сценариев (формы, модалки, поповеры, вкладки, авторизация, стриминг) в реальном браузере.
+- Диагностика ошибок консоли, неработающих кнопок, сломанной вёрстки и регрессий между тёмной и светлой темами.
+- Снятие контрольных скриншотов на целевых разрешениях (`1440×900`, `1280×720`, `390×844`) для визуального QA.
 
-**Always run scripts with `--help` first** to see usage. DO NOT read the source until you try running the script first and find that a customized solution is abslutely necessary. These scripts can be very large and thus pollute your context window. They exist to be called directly as black-box scripts rather than ingested into your context window.
+## Рабочий протокол
+1. **Подготовь изолированный сервер:** поднимай dev/preview сервер (`vite preview`, `http.server` на `dist/`, `next start`) на эфемерном или свободном порту, дожидайся готовности HTTP `200`, и гарантированно останавливай сервер в `finally` / `trap EXIT`.
+2. **Изолируй GPU при фоновых GPU-задачах:** если на машине идёт обучение или рендер, запускай Chromium строго с `--disable-gpu --disable-software-rasterizer` (0% нагрузки на GPU).
+3. **Разведка перед действиями (Reconnaissance-then-Action):**
+   - Подпишись на `page.on("console")` и `page.on("pageerror")` до перехода на URL — ноль неперехваченных JS-ошибок!
+   - Дождись стабилизации рендера (`networkidle` / явный `waitForSelector` нужного элемента), а не случайного `sleep()`.
+   - Используй устойчивые локаторы: `getByRole(...)`, `getByLabel(...)`, `getByPlaceholder(...)`, `data-testid` вместо хрупких CSS-цепочек `div > div:nth-child(3)`.
+4. **Проверяй визуально глазами:** снимай скриншоты ключевых состояний (тёмная тема, светлая тема, открытые выпадающие меню/модалки, узкий экран) и просматривай их на предмет обрезания текста, переноса тулбаров и контраста.
+5. **Чистое завершение:** закрывай браузер и временный сервер, не оставляя осиротевших процессов.
 
-## Decision Tree: Choosing Your Approach
+## Чеклист качества
+- [ ] `0` ошибок в `console.error` и `pageerror` на всех пройденных сценариях
+- [ ] Проверены интерактивные элементы, клавиатурная навигация (`Tab`/`Enter`/`Escape`) и пустые состояния
+- [ ] Визуальные скриншоты проверены в тёмной и светлой темах без горизонтального переполнения
 
-```
-User task → Is it static HTML?
-    ├─ Yes → Read HTML file directly to identify selectors
-    │         ├─ Success → Write Playwright script using selectors
-    │         └─ Fails/Incomplete → Treat as dynamic (below)
-    │
-    └─ No (dynamic webapp) → Is the server already running?
-        ├─ No → Run: python scripts/with_server.py --help
-        │        Then use the helper + write simplified Playwright script
-        │
-        └─ Yes → Reconnaissance-then-action:
-            1. Navigate and wait for networkidle
-            2. Take screenshot or inspect DOM
-            3. Identify selectors from rendered state
-            4. Execute actions with discovered selectors
-```
+## Антипаттерны (чего избегать)
+- Полагаться на жёсткие `waitForTimeout(3000)` вместо ожидания реального состояния DOM/сети
+- Заявлять «UI работает», проверив только `vite build` без открытия страницы в браузере
 
-## Example: Using with_server.py
-
-To start a server, run `--help` first, then use the helper:
-
-**Single server:**
-```bash
-python scripts/with_server.py --server "npm run dev" --port 5173 -- python your_automation.py
-```
-
-**Multiple servers (e.g., backend + frontend):**
-```bash
-python scripts/with_server.py \
-  --server "cd backend && python server.py" --port 3000 \
-  --server "cd frontend && npm run dev" --port 5173 \
-  -- python your_automation.py
-```
-
-To create an automation script, include only Playwright logic (servers are managed automatically):
-```python
-from playwright.sync_api import sync_playwright
-
-with sync_playwright() as p:
-    browser = p.chromium.launch(headless=True) # Always launch chromium in headless mode
-    page = browser.new_page()
-    page.goto('http://localhost:5173') # Server already running and ready
-    page.wait_for_load_state('networkidle') # CRITICAL: Wait for JS to execute
-    # ... your automation logic
-    browser.close()
-```
-
-## Reconnaissance-Then-Action Pattern
-
-1. **Inspect rendered DOM**:
-   ```python
-   page.screenshot(path='/tmp/inspect.png', full_page=True)
-   content = page.content()
-   page.locator('button').all()
-   ```
-
-2. **Identify selectors** from inspection results
-
-3. **Execute actions** using discovered selectors
-
-## Common Pitfall
-
-❌ **Don't** inspect the DOM before waiting for `networkidle` on dynamic apps
-✅ **Do** wait for `page.wait_for_load_state('networkidle')` before inspection
-
-## Best Practices
-
-- **Use bundled scripts as black boxes** - To accomplish a task, consider whether one of the scripts available in `scripts/` can help. These scripts handle common, complex workflows reliably without cluttering the context window. Use `--help` to see usage, then invoke directly. 
-- Use `sync_playwright()` for synchronous scripts
-- Always close the browser when done
-- Use descriptive selectors: `text=`, `role=`, CSS selectors, or IDs
-- Add appropriate waits: `page.wait_for_selector()` or `page.wait_for_timeout()`
-
-## Reference Files
-
-- **examples/** - Examples showing common patterns:
-  - `element_discovery.py` - Discovering buttons, links, and inputs on a page
-  - `static_html_automation.py` - Using file:// URLs for local HTML
-  - `console_logging.py` - Capturing console logs during automation
+## Верификация перед завершением
+Запусти E2E-скрипт / Playwright-тест с нуля на собранном `dist/`, убедись в коде выхода `0`, отсутствии консольных ошибок и чистоте скриншотов.

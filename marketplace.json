@@ -3,7 +3,7 @@
   "name": "XaLL Skills Marketplace",
   "repo": "mibuchik/xall-skills",
   "branch": "main",
-  "updatedAt": "2026-11-19T16:07:36Z",
+  "updatedAt": "2026-11-19T16:38:51Z",
   "categories": [
     {
       "id": "engineering",
@@ -421,7 +421,7 @@
     {
       "id": "clean-code-engineer",
       "name": "clean-code-engineer",
-      "description": "Стандарты написания чистого, надёжного и готового к продакшену кода (Java, Python, TypeScript/React, Bash, YAML, боты Telegram/Discord, веб-сервисы). Гарантирует отсутствие костылей, самопроверку и защиту от ошибок.",
+      "description": "Стандарты написания чистого, надёжного и готового к продакшену кода (TypeScript/React, Python, Java, Go, Rust, Bash, YAML, боты и веб-сервисы). Гарантирует отсутствие костылей, самопроверку и защиту от ошибок.",
       "category": "engineering",
       "tags": [
         "clean-code",
@@ -429,15 +429,15 @@
         "production",
         "quality"
       ],
-      "version": "1.0.0",
+      "version": "1.1.0",
       "featured": false,
       "path": "skills/clean-code-engineer",
-      "totalBytes": 2988,
+      "totalBytes": 3219,
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "c809936022fb70c44a361ad8469c55b10f09639c148d4b77cd56f70ac9ad045e",
-          "bytes": 2988
+          "sha256": "20a31de5657a0ed42aa95c7c2f2c61cf4dafeeda21e02662512ca72e623e8215",
+          "bytes": 3219
         }
       ]
     },
@@ -479,17 +479,12 @@
       "version": "1.0.0",
       "featured": false,
       "path": "skills/code-review",
-      "totalBytes": 6845,
+      "totalBytes": 6745,
       "files": [
         {
           "path": "SKILL.md",
           "sha256": "2fccbd2a96cc256ab147122edc6614e49db881352059ed866443e544ecb8054a",
           "bytes": 6745
-        },
-        {
-          "path": "agents/openai.yaml",
-          "sha256": "8229ca854e11dc8e6aef2131ee03f31fb1561cf905fab9ccc325180cf3331352",
-          "bytes": 100
         }
       ]
     },
@@ -507,7 +502,7 @@
       "version": "1.0.0",
       "featured": false,
       "path": "skills/codebase-design",
-      "totalBytes": 11852,
+      "totalBytes": 11750,
       "files": [
         {
           "path": "DEEPENING.md",
@@ -523,11 +518,6 @@
           "path": "SKILL.md",
           "sha256": "b6c67aaa103c2a358ae93526116d97872ceacd04af2ee50b03d39f59d42990aa",
           "bytes": 6532
-        },
-        {
-          "path": "agents/openai.yaml",
-          "sha256": "edebc9e4fcfe102114012575eaa9600b9b5fd08c311664f389c36e7bc717740f",
-          "bytes": 102
         }
       ]
     },
@@ -737,17 +727,12 @@
       "version": "1.0.0",
       "featured": false,
       "path": "skills/diagnosing-bugs",
-      "totalBytes": 10174,
+      "totalBytes": 10071,
       "files": [
         {
           "path": "SKILL.md",
           "sha256": "3ec78d532ea7f9b5e3aebe31083cc5d9d32b5a7145c0fb66cbec6f94a025c239",
           "bytes": 8755
-        },
-        {
-          "path": "agents/openai.yaml",
-          "sha256": "3e430dbe4334a87597488c060cb3dc3786bb00c9182877d6f5ec41f62490e90b",
-          "bytes": 103
         },
         {
           "path": "scripts/hitl-loop.template.sh",
@@ -1129,17 +1114,12 @@
       "version": "1.0.0",
       "featured": false,
       "path": "skills/grilling",
-      "totalBytes": 2251,
+      "totalBytes": 2138,
       "files": [
         {
           "path": "SKILL.md",
           "sha256": "ac7aa0783ccf2234f560375b792d21002b921b0ff09c93a71a454da42f29f106",
           "bytes": 2138
-        },
-        {
-          "path": "agents/openai.yaml",
-          "sha256": "1411d7df7d99b7e621a1ff8283c8133cc2464be63d064e52d8ce169c6800ee9b",
-          "bytes": 113
         }
       ]
     },
@@ -1266,24 +1246,25 @@
     {
       "id": "linux-devops-automation",
       "name": "linux-devops-automation",
-      "description": "Системное администрирование и автоматизация окружения (EndeavourOS / Arch Linux, Wayland, Git + Git LFS, GitHub CLI, сетевые порты, процессы, установка инструментов без sudo).",
+      "description": "Системное администрирование Linux и автоматизация окружения: установка CLI-утилит без sudo в ~/.local/bin, диагностика портов и процессов, Git + Git LFS + GitHub CLI, буфер обмена Wayland/X11 и безопасные скрипты.",
       "category": "devops-linux",
       "tags": [
         "linux",
-        "arch",
+        "devops",
         "wayland",
         "git",
-        "cli"
+        "cli",
+        "systemd"
       ],
-      "version": "1.0.0",
+      "version": "1.1.0",
       "featured": false,
       "path": "skills/linux-devops-automation",
-      "totalBytes": 6524,
+      "totalBytes": 4373,
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "363c72a86d8f0391bf6c2085c3af84bd3403e68a2191c2a4732ae28986980164",
-          "bytes": 6524
+          "sha256": "09cd8eec1845cfb9261f2eb4df2093f53b38dbd3f90712c6ca35914411eefaaa",
+          "bytes": 4373
         }
       ]
     },
@@ -1532,23 +1513,25 @@
     {
       "id": "minecraft-plugin-dev",
       "name": "minecraft-plugin-dev",
-      "description": "Разработка и доработка плагинов и расширений под Paper / Purpur / Leaf 1.21.11 на Java 21 (включая PlaceholderAPI-расширения, интеграции с AuraSkills, MythicMobs, NotQuests, DeluxeMenus, TAB и кастомные механики): потокобезопасность, асинхронные задачи, защита от лагов TPS.",
+      "description": "Разработка и оптимизация Java 21 плагинов под Paper / Purpur 1.21+: Paper API, Adventure/MiniMessage, PersistentDataContainer (PDC), безопасные асинхронные задачи, защита TPS/MSPT и чистые soft-depend интеграции.",
       "category": "gamedev-media",
       "tags": [
         "minecraft",
         "paper",
+        "purpur",
         "java21",
+        "adventure",
         "tps"
       ],
-      "version": "1.0.0",
+      "version": "1.1.0",
       "featured": false,
       "path": "skills/minecraft-plugin-dev",
-      "totalBytes": 5838,
+      "totalBytes": 5070,
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "4666fd35db373a559b3e047bb81784cef2be779109bd684427852f257b2c897c",
-          "bytes": 5838
+          "sha256": "c34ec02a0a0f85357565ed020510e6f1696d5b6d68666bfdc1ab4356306dc201",
+          "bytes": 5070
         }
       ]
     },
@@ -2022,17 +2005,12 @@
       "version": "1.0.0",
       "featured": false,
       "path": "skills/research",
-      "totalBytes": 978,
+      "totalBytes": 884,
       "files": [
         {
           "path": "SKILL.md",
           "sha256": "892fe34ba819a34e8b01a17de71b4fd5c8cdd9070c235ce9550383a0cfa938ba",
           "bytes": 884
-        },
-        {
-          "path": "agents/openai.yaml",
-          "sha256": "9b4c470d63221c1f68f22df70b83e2f12401b317babe0d1b7b5f24a974474d0d",
-          "bytes": 94
         }
       ]
     },
@@ -2291,17 +2269,12 @@
       "version": "1.0.0",
       "featured": false,
       "path": "skills/tdd",
-      "totalBytes": 7502,
+      "totalBytes": 7415,
       "files": [
         {
           "path": "SKILL.md",
           "sha256": "619200430f58c16533580baae3b0e6b197be4fdb974facc636ccfcc50ca0fa1d",
           "bytes": 3720
-        },
-        {
-          "path": "agents/openai.yaml",
-          "sha256": "ea6f01cf1b8c06a4b0f5b649d74b1b8ce8685e72af1b38d70d877693e092af0b",
-          "bytes": 87
         },
         {
           "path": "mocking.md",
@@ -2533,48 +2506,24 @@
     {
       "id": "webapp-testing",
       "name": "webapp-testing",
-      "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
+      "description": "Инструментарий и протокол тестирования локальных веб-приложений и Electron UI через Playwright и headless Chromium: проверка DOM, перехват консольных/сетевых ошибок, визуальные скриншоты и E2E.",
       "category": "debugging-qa",
       "tags": [
         "playwright",
         "e2e",
         "browser",
-        "frontend-qa"
+        "frontend-qa",
+        "screenshots"
       ],
-      "version": "1.0.0",
+      "version": "1.1.0",
       "featured": false,
       "path": "skills/webapp-testing",
-      "totalBytes": 22478,
+      "totalBytes": 4396,
       "files": [
         {
-          "path": "LICENSE.txt",
-          "sha256": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
-          "bytes": 11345
-        },
-        {
           "path": "SKILL.md",
-          "sha256": "ce7f153036ee9e8b8a84a717998b31f0d8e26f8debcb240dffdb13a2298e5ec8",
-          "bytes": 3997
-        },
-        {
-          "path": "examples/console_logging.py",
-          "sha256": "ea46877289acb82da7e7ce59d0bc37c8977cd57e2a006d0c88d7a1c625bf95da",
-          "bytes": 1027
-        },
-        {
-          "path": "examples/element_discovery.py",
-          "sha256": "d63c89604a22f8845d724e95dda45db49b1bf57c25ce0a83afbb7b8da3d402f0",
-          "bytes": 1463
-        },
-        {
-          "path": "examples/static_html_automation.py",
-          "sha256": "9d533aafb875ee3ab8b8ebf8f5b9003ac8d999da3d09b285cce252e623140064",
-          "bytes": 953
-        },
-        {
-          "path": "scripts/with_server.py",
-          "sha256": "b0dcf4918935b795f4eda9821579b9902119235ff4447f687a30286e7d0925fd",
-          "bytes": 3693
+          "sha256": "22d3c8e41fdcbbc5765d5cd544dde5cb1967985d2684a18bc98ecbdd88059959",
+          "bytes": 4396
         }
       ]
     },

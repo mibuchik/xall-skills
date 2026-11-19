@@ -111,7 +111,10 @@ VALID_CATEGORY_IDS = {c["id"] for c in CATEGORIES}
 SKILL_ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 FORBIDDEN_PATTERNS = [
     re.compile(r"/home/[a-zA-Z0-9_-]+/"),
-    re.compile(r"\b(antigravity|ghp_[A-Za-z0-9]{20,}|gho_[A-Za-z0-9]{20,})\b", re.IGNORECASE),
+    re.compile(
+        r"\b(antigravity|anthropic|openai|endeavouros|tlauncher|millida|temurin-21|ghp_[A-Za-z0-9]{20,}|gho_[A-Za-z0-9]{20,})\b",
+        re.IGNORECASE,
+    ),
 ]
 
 
